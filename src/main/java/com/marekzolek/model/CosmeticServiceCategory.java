@@ -20,28 +20,28 @@ public class CosmeticServiceCategory {
     @OneToMany(mappedBy = "category")
     private List<CosmeticService> cosmeticServices;
 
-    public static class CosmeticServiceCategoryBuilder{
+    public static class CosmeticServiceCategoryBuilder {
 
         private Long id;
         private String name;
         private List<CosmeticService> cosmeticServices;
 
-        public CosmeticServiceCategoryBuilder id(final Long id){
+        public CosmeticServiceCategoryBuilder id(final Long id) {
             this.id = id;
             return this;
         }
 
-        public CosmeticServiceCategoryBuilder name(final String name){
+        public CosmeticServiceCategoryBuilder name(final String name) {
             this.name = name;
             return this;
         }
 
-        public CosmeticServiceCategoryBuilder cosmeticServices(final List<CosmeticService> cosmeticServices){
+        public CosmeticServiceCategoryBuilder cosmeticServices(final List<CosmeticService> cosmeticServices) {
             this.cosmeticServices = cosmeticServices;
             return this;
         }
 
-        public CosmeticServiceCategory build(){
+        public CosmeticServiceCategory build() {
             CosmeticServiceCategory cosmeticServiceCategory = new CosmeticServiceCategory();
             cosmeticServiceCategory.id = this.id;
             cosmeticServiceCategory.name = this.name;
@@ -50,37 +50,17 @@ public class CosmeticServiceCategory {
         }
     }
 
-    public CosmeticServiceCategory() {
-    }
-
-    public CosmeticServiceCategory(final Long id, final String name, final List<CosmeticService> cosmeticServices) {
-        this.id = id;
-        this.name = name;
-        this.cosmeticServices = cosmeticServices;
-    }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(final Long id) {
-        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(final String name) {
-        this.name = name;
-    }
-
     public List<CosmeticService> getCosmeticServices() {
         return cosmeticServices;
-    }
-
-    public void setCosmeticServices(final List<CosmeticService> cosmeticServices) {
-        this.cosmeticServices = cosmeticServices;
     }
 
     @Override

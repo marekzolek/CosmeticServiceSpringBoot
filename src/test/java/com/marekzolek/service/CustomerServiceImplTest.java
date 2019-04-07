@@ -28,20 +28,20 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CustomerServiceImplTest {
 
-    Customer customer1;
-    Customer customer2;
-    CosmeticService cosmeticService1;
-    CosmeticService cosmeticService2;
-    CosmeticServicesHistory cosmeticServicesHistory1;
-    CosmeticServicesHistory cosmeticServicesHistory2;
-    CosmeticServiceCategory cosmeticServiceCategory1;
-    CosmeticServiceCategory cosmeticServiceCategory2;
-    CustomerDto customerDto1 = new CustomerDto();
-    CustomerDto customerDto2 = new CustomerDto();
+    private Customer customer1;
+    private Customer customer2;
+    private CosmeticService cosmeticService1;
+    private CosmeticService cosmeticService2;
+    private CosmeticServicesHistory cosmeticServicesHistory1;
+    private CosmeticServicesHistory cosmeticServicesHistory2;
+    private CosmeticServiceCategory cosmeticServiceCategory1;
+    private CosmeticServiceCategory cosmeticServiceCategory2;
+    private CustomerDto customerDto1 = new CustomerDto();
+    private CustomerDto customerDto2 = new CustomerDto();
 
-    List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
-    List<Customer> customers = new ArrayList<>();
-    List<CustomerDto> dtoCustomers = new ArrayList<>();
+    private List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
+    private List<Customer> customers = new ArrayList<>();
+    private List<CustomerDto> dtoCustomers = new ArrayList<>();
 
     @InjectMocks
     private CustomerServiceImpl customerService;

@@ -23,10 +23,10 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CosmeticServiceServiceImplTest {
 
-    CosmeticService cosmeticService1;
-    CosmeticService cosmeticService2;
-    CosmeticServiceCategory cosmeticServiceCategory1;
-    List<CosmeticService> cosmeticServices = new ArrayList<>();
+    private CosmeticService cosmeticService1;
+    private CosmeticService cosmeticService2;
+    private CosmeticServiceCategory cosmeticServiceCategory1;
+    private List<CosmeticService> cosmeticServices = new ArrayList<>();
 
     @InjectMocks
     private CosmeticServiceServiceImpl cosmeticServiceService;
@@ -98,16 +98,7 @@ public class CosmeticServiceServiceImplTest {
     @Test
     public void findCosmeticServicesWithCategoryId() throws CategoryNotFoundException {
 
-        CosmeticServiceCategory cosmeticServiceCategory = new CosmeticServiceCategory(1L, null, null);
-
-        CosmeticService cosmeticService1 = new CosmeticService(null, null, null, cosmeticServiceCategory);
-        CosmeticService cosmeticService2 = new CosmeticService(null, null, null, cosmeticServiceCategory);
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService1);
-        cosmeticServices.add(cosmeticService2);
-
-        when(cosmeticServiceCategoryRepository.findById(1L)).thenReturn(Optional.of(cosmeticServiceCategory));
+        when(cosmeticServiceCategoryRepository.findById(1L)).thenReturn(Optional.of(cosmeticServiceCategory1));
 
         when(cosmeticServiceRepository.findAll()).thenReturn(cosmeticServices);
 

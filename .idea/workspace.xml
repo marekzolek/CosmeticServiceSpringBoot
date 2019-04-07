@@ -2,70 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="851fdb6b-66dc-4cd2-bc8a-b64fee72b1c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/configuration/UrlConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/checkStyle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/suppressions.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/controller/CosmeticServiceCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/controller/CosmeticServiceCategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/controller/CosmeticServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/controller/CosmeticServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/controller/CosmeticServiceHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/controller/CosmeticServiceHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/dto/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/dto/CustomerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/dto/mapperDto/CustomerDtoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/dto/mapperDto/CustomerDtoMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServiceCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServiceCategory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServicesHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServicesHistory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/repository/CosmeticServiceCategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/repository/CosmeticServiceCategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/repository/CosmeticServiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/repository/CosmeticServiceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/repository/CosmeticServicesHistoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/repository/CosmeticServicesHistoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/repository/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServiceCategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServiceCategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServiceCategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServiceCategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServiceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServiceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServiceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServicesHistoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServicesHistoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServicesHistoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServicesHistoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/marekzolek/service/CustomerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/marekzolek/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/marekzolek/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceCategoryControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceCategoryControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceHistoryControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceHistoryControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CustomerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CustomerControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServiceCategoryServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServiceCategoryServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServiceServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServiceServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServicesHistoryServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServicesHistoryServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CustomerServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CustomerServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/cosmeticServicesSpringApp.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/controller/CosmeticServiceCategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/controller/CosmeticServiceCategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/controller/CosmeticServiceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/controller/CosmeticServiceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/controller/CosmeticServiceHistoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/controller/CosmeticServiceHistoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/controller/CustomerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/dto/CustomerDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/dto/CustomerDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/dto/mapperDto/CustomerDtoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/dto/mapperDto/CustomerDtoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/checkstyle-cachefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/checkstyle-checker.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/checkstyle-result.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/checkstyle-suppressions.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/model/CosmeticService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/model/CosmeticService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/model/CosmeticServiceCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/model/CosmeticServiceCategory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/model/CosmeticServicesHistory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/model/CosmeticServicesHistory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/model/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/repository/CosmeticServiceCategoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/repository/CosmeticServiceCategoryRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/repository/CosmeticServiceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/repository/CosmeticServiceRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/repository/CosmeticServicesHistoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/repository/CosmeticServicesHistoryRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/repository/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/repository/CustomerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServiceCategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServiceCategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServiceCategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServiceCategoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServiceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServiceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServiceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServiceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServicesHistoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServicesHistoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServicesHistoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CosmeticServicesHistoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CustomerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/marekzolek/service/CustomerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/cosmeticServicesSpringApp.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/marekzolek/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/marekzolek/AppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/marekzolek/service/CustomerServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/marekzolek/service/CustomerServiceImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cosmeticServicesSpringApp-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/marekzolek/controller/CosmeticServiceCategoryControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/marekzolek/controller/CosmeticServiceHistoryControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/marekzolek/service/CosmeticServiceCategoryServiceImplTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/marekzolek/service/CosmeticServiceServiceImplTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/marekzolek/service/CosmeticServicesHistoryServiceImplTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/marekzolek/service/CustomerServiceImplTest.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -77,25 +36,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceControllerTest.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServiceCategory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="66" column="5" lean-forward="true" selection-start-line="39" selection-start-column="3" selection-end-line="66" selection-end-column="5" />
+            <state relative-caret-position="238">
+              <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1959#1960#0" expanded="true" />
+                <element signature="e#1984#1985#0" expanded="true" />
+                <element signature="e#2083#2084#0" expanded="true" />
+                <element signature="e#2110#2111#0" expanded="true" />
+                <element signature="e#2246#2247#0" expanded="true" />
+                <element signature="e#2285#2286#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceHistoryControllerTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="85" column="5" lean-forward="true" selection-start-line="48" selection-start-column="3" selection-end-line="85" selection-end-column="5" />
+            <state relative-caret-position="399">
+              <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1952#1953#0" expanded="true" />
+                <element signature="e#1980#1981#0" expanded="true" />
+                <element signature="e#2011#2012#0" expanded="true" />
+                <element signature="e#2038#2039#0" expanded="true" />
+                <element signature="e#2072#2073#0" expanded="true" />
+                <element signature="e#2102#2103#0" expanded="true" />
+                <element signature="e#2129#2130#0" expanded="true" />
+                <element signature="e#2154#2155#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CustomerControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2203">
-              <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+            <state relative-caret-position="-267">
+              <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,46 +87,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/service/CustomerServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="175" selection-start-line="175" selection-end-line="175" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServiceCategoryServiceImplTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2465">
-              <caret line="145" column="89" selection-start-line="145" selection-start-column="89" selection-end-line="145" selection-end-column="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/marekzolek/service/CustomerServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1668">
-              <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServiceServiceImplTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2402">
-              <caret line="150" column="39" selection-start-line="150" selection-start-column="39" selection-end-line="150" selection-end-column="39" />
+            <state relative-caret-position="194">
+              <caret line="176" column="30" selection-start-line="176" selection-start-column="30" selection-end-line="176" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,8 +113,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServicesHistory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+            <state relative-caret-position="229">
+              <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+              <folding>
+                <element signature="e#1884#1885#0" expanded="true" />
+                <element signature="e#1909#1910#0" expanded="true" />
+                <element signature="e#1940#1941#0" expanded="true" />
+                <element signature="e#1967#1968#0" expanded="true" />
+                <element signature="e#2018#2019#0" expanded="true" />
+                <element signature="e#2056#2057#0" expanded="true" />
+                <element signature="e#2224#2225#0" expanded="true" />
+                <element signature="e#2255#2256#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -186,9 +133,19 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
-              <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+              <caret line="98" column="5" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2709#2710#0" expanded="true" />
+                <element signature="e#2734#2735#0" expanded="true" />
+                <element signature="e#2765#2766#0" expanded="true" />
+                <element signature="e#2792#2793#0" expanded="true" />
+                <element signature="e#2825#2826#0" expanded="true" />
+                <element signature="e#2853#2854#0" expanded="true" />
+                <element signature="e#2884#2885#0" expanded="true" />
+                <element signature="e#2911#2912#0" expanded="true" />
+                <element signature="e#3031#3032#0" expanded="true" />
+                <element signature="e#3062#3063#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -255,18 +212,18 @@
         <option value="$PROJECT_DIR$/src/test/java/com/marekzolek/AppTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/marekzolek/App.java" />
         <option value="$PROJECT_DIR$/src/main/resources/checkStyle.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServiceCategory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/marekzolek/model/Customer.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceCategoryControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceHistoryControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServiceCategoryServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServiceServiceImplTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServicesHistory.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CosmeticServicesHistoryServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CustomerControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/marekzolek/service/CustomerServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServiceCategory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServicesHistory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/marekzolek/model/Customer.java" />
       </list>
     </option>
   </component>
@@ -431,7 +388,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554678603609" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554679190912" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../cosmeticServices" />
@@ -599,21 +556,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CustomerControllerTest - 2019.04.08 at 00h 55m 30s.xml">
-      <configuration name="CustomerControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerControllerTest_customersWhichHadServicesInYear - 2019.04.08 at 00h 55m 52s.xml">
-      <configuration name="CustomerControllerTest.customersWhichHadServicesInYear" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerServiceImplTest_mansBornBeforeYear - 2019.04.08 at 00h 56m 13s.xml">
-      <configuration name="CustomerServiceImplTest.mansBornBeforeYear" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerServiceImplTest_customersWithSumOfServicesInGivenYear - 2019.04.08 at 00h 56m 49s.xml">
-      <configuration name="CustomerServiceImplTest.customersWithSumOfServicesInGivenYear" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerServiceImplTest_customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear - 2019.04.08 at 00h 59m 31s.xml">
-      <configuration name="CustomerServiceImplTest.customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CustomerServiceImplTest_customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear - 2019.04.08 at 01h 02m 18s.xml">
       <configuration name="CustomerServiceImplTest.customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear" configurationId="JUnit" />
     </history-entry>
@@ -628,6 +570,21 @@
     </history-entry>
     <history-entry file="CustomerServiceImplTest_customersWithSumOfServicesInGivenYear - 2019.04.08 at 01h 06m 13s.xml">
       <configuration name="CustomerServiceImplTest.customersWithSumOfServicesInGivenYear" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerServiceImplTest_customersWithSumOfServicesInGivenYear - 2019.04.08 at 01h 07m 54s.xml">
+      <configuration name="CustomerServiceImplTest.customersWithSumOfServicesInGivenYear" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerServiceImplTest_customersWithSumOfServicesInGivenYear - 2019.04.08 at 01h 09m 07s.xml">
+      <configuration name="CustomerServiceImplTest.customersWithSumOfServicesInGivenYear" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerControllerTest - 2019.04.08 at 01h 09m 22s.xml">
+      <configuration name="CustomerControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_cosmeticServicesSpringApp - 2019.04.08 at 01h 10m 19s.xml">
+      <configuration name="All in cosmeticServicesSpringApp" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_cosmeticServicesSpringApp - 2019.04.08 at 01h 11m 08s.xml">
+      <configuration name="All in cosmeticServicesSpringApp" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -646,15 +603,15 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32922733" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29339305" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29339305" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2575588" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2575588" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.35610303" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3289689" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3281075" />
       <window_info anchor="bottom" id="DB Execution Console" order="11" />
       <window_info anchor="bottom" id="Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -813,16 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/dto/mapperDto/CustomerDtoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/dto/CustomerDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -928,16 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServiceCategoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServicesHistoryService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1005,16 +942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1042,16 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServiceCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-407">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1101,24 +1018,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CosmeticServiceHistoryControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
-          <caret line="85" column="5" lean-forward="true" selection-start-line="48" selection-start-column="3" selection-end-line="85" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServicesHistory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <caret line="85" column="5" selection-start-line="48" selection-start-column="3" selection-end-line="85" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1147,8 +1047,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/marekzolek/controller/CustomerControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2203">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="-267">
+          <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1157,10 +1057,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/marekzolek/service/CustomerServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1668">
-          <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
+        <state relative-caret-position="194">
+          <caret line="176" column="30" selection-start-line="176" selection-start-column="30" selection-end-line="176" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/service/CosmeticServiceCategoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/dto/mapperDto/CustomerDtoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="98" column="5" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2709#2710#0" expanded="true" />
+            <element signature="e#2734#2735#0" expanded="true" />
+            <element signature="e#2765#2766#0" expanded="true" />
+            <element signature="e#2792#2793#0" expanded="true" />
+            <element signature="e#2825#2826#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2884#2885#0" expanded="true" />
+            <element signature="e#2911#2912#0" expanded="true" />
+            <element signature="e#3031#3032#0" expanded="true" />
+            <element signature="e#3062#3063#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServicesHistory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="60" column="22" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="22" />
+          <folding>
+            <element signature="e#1884#1885#0" expanded="true" />
+            <element signature="e#1909#1910#0" expanded="true" />
+            <element signature="e#1940#1941#0" expanded="true" />
+            <element signature="e#1967#1968#0" expanded="true" />
+            <element signature="e#2018#2019#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2224#2225#0" expanded="true" />
+            <element signature="e#2255#2256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1952#1953#0" expanded="true" />
+            <element signature="e#1980#1981#0" expanded="true" />
+            <element signature="e#2011#2012#0" expanded="true" />
+            <element signature="e#2038#2039#0" expanded="true" />
+            <element signature="e#2072#2073#0" expanded="true" />
+            <element signature="e#2102#2103#0" expanded="true" />
+            <element signature="e#2129#2130#0" expanded="true" />
+            <element signature="e#2154#2155#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/marekzolek/model/CosmeticServiceCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1959#1960#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2083#2084#0" expanded="true" />
+            <element signature="e#2110#2111#0" expanded="true" />
+            <element signature="e#2246#2247#0" expanded="true" />
+            <element signature="e#2285#2286#0" expanded="true" />
           </folding>
         </state>
       </provider>

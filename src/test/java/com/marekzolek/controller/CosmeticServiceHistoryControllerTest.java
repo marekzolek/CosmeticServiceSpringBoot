@@ -27,13 +27,13 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CosmeticServiceHistoryControllerTest {
 
-    CosmeticServicesHistory cosmeticServicesHistory1;
-    CosmeticServicesHistory cosmeticServicesHistory2;
-    CosmeticServicesHistory cosmeticServicesHistory3;
-    CosmeticService cosmeticService1;
-    CosmeticService cosmeticService2;
+    private CosmeticServicesHistory cosmeticServicesHistory1;
+    private CosmeticServicesHistory cosmeticServicesHistory2;
+    private CosmeticServicesHistory cosmeticServicesHistory3;
+    private CosmeticService cosmeticService1;
+    private CosmeticService cosmeticService2;
 
-    List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
+    private List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
 
     @InjectMocks
     private CosmeticServiceHistoryController cosmeticServiceHistoryController;

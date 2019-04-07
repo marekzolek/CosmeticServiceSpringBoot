@@ -25,7 +25,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<CosmeticServicesHistory> history = new ArrayList<>();
 
-    public static class CustomerBuilder{
+    public static class CustomerBuilder {
 
         private Long id;
         private Long pesel;
@@ -33,32 +33,32 @@ public class Customer {
         private String surname;
         private List<CosmeticServicesHistory> history = new ArrayList<>();
 
-        public CustomerBuilder id(final Long id){
+        public CustomerBuilder id(final Long id) {
             this.id = id;
             return this;
         }
 
-        public CustomerBuilder pesel (final Long pesel){
+        public CustomerBuilder pesel(final Long pesel) {
             this.pesel = pesel;
             return this;
         }
 
-        public CustomerBuilder name(final String name){
+        public CustomerBuilder name(final String name) {
             this.name = name;
             return this;
         }
 
-        public CustomerBuilder surname(final String surname){
+        public CustomerBuilder surname(final String surname) {
             this.surname = surname;
             return this;
         }
 
-        public CustomerBuilder history(final List<CosmeticServicesHistory> history){
+        public CustomerBuilder history(final List<CosmeticServicesHistory> history) {
             this.history = history;
             return this;
         }
 
-        public Customer build(){
+        public Customer build() {
             Customer customer = new Customer();
             customer.id = this.id;
             customer.pesel = this.pesel;
@@ -67,16 +67,6 @@ public class Customer {
             customer.history = this.history;
             return customer;
         }
-    }
-
-
-    public Customer(final Long pesel, final String name, final String surname) {
-        this.pesel = pesel;
-        this.name = name;
-        this.surname = surname;
-    }
-
-    public Customer() {
     }
 
     public Long getPesel() {

@@ -23,17 +23,15 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CosmeticServiceCategoryControllerTest {
 
-    CosmeticService cosmeticService1;
-    CosmeticService cosmeticService2;
-    CosmeticServiceCategory cosmeticServiceCategory1;
-    CosmeticServiceCategory cosmeticServiceCategory2;
+    private CosmeticService cosmeticService1;
+    private CosmeticService cosmeticService2;
+    private CosmeticServiceCategory cosmeticServiceCategory1;
+    private CosmeticServiceCategory cosmeticServiceCategory2;
 
 
-    List<CosmeticService> cosmeticServices1 = new ArrayList<>();
-
-    List<CosmeticService> cosmeticServices2 = new ArrayList<>();
-
-    List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
+    private List<CosmeticService> cosmeticServices1 = new ArrayList<>();
+    private List<CosmeticService> cosmeticServices2 = new ArrayList<>();
+    private List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
 
 
     @InjectMocks

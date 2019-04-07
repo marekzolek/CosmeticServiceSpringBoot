@@ -1,11 +1,14 @@
 com\marekzolek\controller\CosmeticServiceCategoryController.class
+com\marekzolek\model\Customer$CustomerBuilder.class
 com\marekzolek\service\CosmeticServicesHistoryServiceImpl.class
 com\marekzolek\exception\CosmeticServiceNotFoundException.class
 com\marekzolek\configuration\UrlConfiguration.class
 com\marekzolek\service\CosmeticServiceCategoryServiceImpl.class
 com\marekzolek\model\CosmeticServiceCategory.class
+com\marekzolek\model\CosmeticServicesHistory$CosmeticServicesHistoryBuilder.class
 com\marekzolek\exception\CategoryNotFoundException.class
 com\marekzolek\controller\CustomerController.class
+com\marekzolek\model\CosmeticServiceCategory$CosmeticServiceCategoryBuilder.class
 com\marekzolek\model\Customer.class
 com\marekzolek\exception\CustomerNotFoundException.class
 com\marekzolek\App.class
@@ -15,6 +18,7 @@ com\marekzolek\repository\CosmeticServiceCategoryRepository.class
 com\marekzolek\service\CosmeticServicesHistoryService.class
 com\marekzolek\dto\CustomerDto.class
 com\marekzolek\controller\CosmeticServiceHistoryController.class
+com\marekzolek\model\CosmeticService$CosmeticServiceBuilder.class
 com\marekzolek\service\CosmeticServiceCategoryService.class
 com\marekzolek\service\CustomerService.class
 com\marekzolek\service\CustomerServiceImpl.class
