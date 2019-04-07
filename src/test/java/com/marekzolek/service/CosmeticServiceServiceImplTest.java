@@ -26,6 +26,7 @@ public class CosmeticServiceServiceImplTest {
     private CosmeticService cosmeticService1;
     private CosmeticService cosmeticService2;
     private CosmeticServiceCategory cosmeticServiceCategory1;
+    private CosmeticServiceCategory cosmeticServiceCategory2;
     private List<CosmeticService> cosmeticServices = new ArrayList<>();
 
     @InjectMocks
@@ -46,6 +47,12 @@ public class CosmeticServiceServiceImplTest {
                 .cosmeticServices(null)
                 .build();
 
+        cosmeticServiceCategory2 = new CosmeticServiceCategory.CosmeticServiceCategoryBuilder()
+                .id(2L)
+                .name("BB")
+                .cosmeticServices(null)
+                .build();
+
         cosmeticService1 = new CosmeticService.CosmeticServiceBuilder()
                 .name("AA")
                 .price(250)
@@ -56,7 +63,7 @@ public class CosmeticServiceServiceImplTest {
                 .name("BB")
                 .price(200)
                 .type("F")
-                .category(null)
+                .category(cosmeticServiceCategory2)
                 .build();
 
         cosmeticServices.add(cosmeticService1);
@@ -102,7 +109,7 @@ public class CosmeticServiceServiceImplTest {
 
         when(cosmeticServiceRepository.findAll()).thenReturn(cosmeticServices);
 
-        assertEquals(cosmeticServices, cosmeticServiceService.findCosmeticServicesWithCategoryId(1L));
+        assertEquals(cosmeticService1, cosmeticServiceService.findCosmeticServicesWithCategoryId(1L).get(0));
     }
 
     @Test
