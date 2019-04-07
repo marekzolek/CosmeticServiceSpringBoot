@@ -1,6 +1,7 @@
 package com.marekzolek.controller;
 
 
+import com.marekzolek.configuration.UrlConfiguration;
 import com.marekzolek.exception.CategoryNotFoundException;
 import com.marekzolek.exception.CustomerNotFoundException;
 import com.marekzolek.model.CosmeticServiceCategory;
@@ -9,29 +10,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/cosmeticServiceCategory")
 public class CosmeticServiceCategoryController {
 
+    private UrlConfiguration urlConfiguration = new UrlConfiguration();
 
     @Autowired
     private CosmeticServiceCategoryService cosmeticServiceCategoryService;
 
-    @PostMapping("/add")
-    public CosmeticServiceCategory add(@RequestBody CosmeticServiceCategory cosmeticServiceCategory) {
+    @PostMapping()
+    public CosmeticServiceCategory add(@RequestBody final CosmeticServiceCategory cosmeticServiceCategory) {
         return cosmeticServiceCategoryService.add(cosmeticServiceCategory);
     }
 
     @DeleteMapping("/delete")
-    public void delete(@RequestParam Long id) {
+    public void delete(@RequestParam final Long id) {
         cosmeticServiceCategoryService.delete(id);
     }
 
     @GetMapping("/{id}")
-    public CosmeticServiceCategory findOne(@PathVariable Long id) throws CategoryNotFoundException {
+    public CosmeticServiceCategory findOne(@PathVariable final Long id) throws CategoryNotFoundException {
         return cosmeticServiceCategoryService.findOne(id);
     }
 
@@ -41,12 +41,12 @@ public class CosmeticServiceCategoryController {
     }
 
     @GetMapping("/namesOfCategoryServiceOfGivenCustomer")
-    public List<CosmeticServiceCategory> namesOfCategoryServiceOfGivenCustomer(@RequestParam Long customerId) throws CustomerNotFoundException {
+    public List<CosmeticServiceCategory> namesOfCategoryServiceOfGivenCustomer(@RequestParam final Long customerId) throws CustomerNotFoundException {
         return cosmeticServiceCategoryService.namesOfCategoryServiceOfGivenCustomer(customerId);
     }
 
     @GetMapping("/havingServicesType")
-    public List<CosmeticServiceCategory> findAllByServiceType(@RequestParam String type) {
+    public List<CosmeticServiceCategory> findAllByServiceType(@RequestParam final String type) {
         return cosmeticServiceCategoryService.findAllByServiceType(type);
     }
 
@@ -58,5 +58,10 @@ public class CosmeticServiceCategoryController {
     @GetMapping("/categoryWithTheLeastNumberOfServices")
     public CosmeticServiceCategory categoryWithTheLeastNumberOfServices() throws CategoryNotFoundException {
         return cosmeticServiceCategoryService.categoryWithTheLeastNumberOfServices();
+    }
+
+    @GetMapping("/countNumberOfCosmeticServicesFromGivenCategoryId/{price}")
+    public Integer countNumberOfCosmeticServicesFromGivenCategoryId(@PathVariable final Integer price) {
+        return cosmeticServiceCategoryService.countNumberOfCosmeticServicesCostGivenPrice(price);
     }
 }

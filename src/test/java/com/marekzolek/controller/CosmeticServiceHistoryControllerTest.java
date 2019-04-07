@@ -27,6 +27,14 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CosmeticServiceHistoryControllerTest {
 
+    CosmeticServicesHistory cosmeticServicesHistory1;
+    CosmeticServicesHistory cosmeticServicesHistory2;
+    CosmeticServicesHistory cosmeticServicesHistory3;
+    CosmeticService cosmeticService1;
+    CosmeticService cosmeticService2;
+
+    List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
+
     @InjectMocks
     private CosmeticServiceHistoryController cosmeticServiceHistoryController;
 
@@ -40,17 +48,49 @@ public class CosmeticServiceHistoryControllerTest {
 
     @Before
     public void init() {
+
         mockMvc = MockMvcBuilders.standaloneSetup(cosmeticServiceHistoryController).build();
+
+        cosmeticService1 = new CosmeticService.CosmeticServiceBuilder()
+                .name("AA")
+                .price(250)
+                .type("M")
+                .category(null)
+                .build();
+        cosmeticService2 = new CosmeticService.CosmeticServiceBuilder()
+                .name("BB")
+                .price(200)
+                .type("F")
+                .category(null)
+                .build();
+
+        cosmeticServicesHistory1 = new CosmeticServicesHistory.CosmeticServicesHistoryBuilder()
+                .cosmeticService(cosmeticService1)
+                .date("2017-03-04")
+                .build();
+
+        cosmeticServicesHistory2 = new CosmeticServicesHistory.CosmeticServicesHistoryBuilder()
+                .cosmeticService(cosmeticService1)
+                .date("2017-02-04")
+                .build();
+
+        cosmeticServicesHistory3 = new CosmeticServicesHistory.CosmeticServicesHistoryBuilder()
+                .cosmeticService(cosmeticService2)
+                .date("2017-02-04")
+                .build();
+
+
+        cosmeticServicesHistories.add(cosmeticServicesHistory1);
+        cosmeticServicesHistories.add(cosmeticServicesHistory2);
+        cosmeticServicesHistories.add(cosmeticServicesHistory3);
     }
 
     @Test
     public void add() {
 
-        CosmeticServicesHistory cosmeticServicesHistory = new CosmeticServicesHistory();
+        when(cosmeticServicesHistoryService.add(cosmeticServicesHistory1)).thenReturn(cosmeticServicesHistory1);
 
-        when(cosmeticServicesHistoryService.add(cosmeticServicesHistory)).thenReturn(cosmeticServicesHistory);
-
-        assertEquals(cosmeticServicesHistory, cosmeticServiceHistoryController.add(cosmeticServicesHistory));
+        assertEquals(cosmeticServicesHistory1, cosmeticServiceHistoryController.add(cosmeticServicesHistory1));
     }
 
     @Test
@@ -63,26 +103,17 @@ public class CosmeticServiceHistoryControllerTest {
     @Test
     public void findOne() throws Exception {
 
-        CosmeticServicesHistory cosmeticServicesHistory = new CosmeticServicesHistory(null, null, "2017-03-04");
-
-        when(cosmeticServicesHistoryService.findOne(1L)).thenReturn(cosmeticServicesHistory);
+        when(cosmeticServicesHistoryService.findOne(1L)).thenReturn(cosmeticServicesHistory1);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticServicesHistory/1")).
                 andExpect(MockMvcResultMatchers.status().isOk()).
-                andExpect(MockMvcResultMatchers.jsonPath(".date").value("2017-03-04"));
+                andExpect(MockMvcResultMatchers.jsonPath("$.date").value("2017-03-04"));
 
-        assertEquals(cosmeticServicesHistory, cosmeticServiceHistoryController.findOne(1L));
+        assertEquals(cosmeticServicesHistory1, cosmeticServiceHistoryController.findOne(1L));
     }
 
     @Test
     public void findAll() throws Exception {
-
-        CosmeticServicesHistory cosmeticServicesHistory1 = new CosmeticServicesHistory(null, null, "2017-03-04");
-        CosmeticServicesHistory cosmeticServicesHistory2 = new CosmeticServicesHistory(null, null, "2017-02-04");
-
-        List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
-        cosmeticServicesHistories.add(cosmeticServicesHistory1);
-        cosmeticServicesHistories.add(cosmeticServicesHistory2);
 
         when(cosmeticServicesHistoryService.findAll()).thenReturn(cosmeticServicesHistories);
 
@@ -119,23 +150,11 @@ public class CosmeticServiceHistoryControllerTest {
     @Test
     public void theMostPopularService() throws Exception {
 
-        CosmeticService cosmeticService1 = new CosmeticService("Depilacja", 250, "F", null);
-        CosmeticService cosmeticService2 = new CosmeticService();
-
-        CosmeticServicesHistory cosmeticServicesHistory1 = new CosmeticServicesHistory(cosmeticService1, null, null);
-        CosmeticServicesHistory cosmeticServicesHistory2 = new CosmeticServicesHistory(cosmeticService1, null, null);
-        CosmeticServicesHistory cosmeticServicesHistory3 = new CosmeticServicesHistory(cosmeticService2, null, null);
-
-        List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
-        cosmeticServicesHistories.add(cosmeticServicesHistory1);
-        cosmeticServicesHistories.add(cosmeticServicesHistory2);
-        cosmeticServicesHistories.add(cosmeticServicesHistory3);
-
         when(cosmeticServicesHistoryService.theMostPopularService()).thenReturn(cosmeticService1);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticServicesHistory/theMostPopularService"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath(".price").value(250));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.price").value(250));
 
         assertEquals(cosmeticService1, cosmeticServiceHistoryController.theMostPopularService());
     }
@@ -143,23 +162,11 @@ public class CosmeticServiceHistoryControllerTest {
     @Test
     public void leastPopularService() throws Exception {
 
-        CosmeticService cosmeticService1 = new CosmeticService("Depilacja", 250, "F", null);
-        CosmeticService cosmeticService2 = new CosmeticService("Depilacja Męska", 200, "F", null);
-
-        CosmeticServicesHistory cosmeticServicesHistory1 = new CosmeticServicesHistory(cosmeticService1, null, null);
-        CosmeticServicesHistory cosmeticServicesHistory2 = new CosmeticServicesHistory(cosmeticService1, null, null);
-        CosmeticServicesHistory cosmeticServicesHistory3 = new CosmeticServicesHistory(cosmeticService2, null, null);
-
-        List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
-        cosmeticServicesHistories.add(cosmeticServicesHistory1);
-        cosmeticServicesHistories.add(cosmeticServicesHistory2);
-        cosmeticServicesHistories.add(cosmeticServicesHistory3);
-
         when(cosmeticServicesHistoryService.leastPopularService()).thenReturn(cosmeticService2);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticServicesHistory/leastPopularService"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath(".name").value("Depilacja Męska"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("BB"));
 
         assertEquals(cosmeticService2, cosmeticServiceHistoryController.leastPopularService());
     }

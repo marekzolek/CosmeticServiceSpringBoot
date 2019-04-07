@@ -8,7 +8,13 @@ import java.util.List;
 
 public interface CosmeticServiceRepository extends JpaRepository<CosmeticService, Long> {
 
-    List<CosmeticService> findAllByType(String type);
+    @Query(value = "Select s from CosmeticService s where name like :letter%")
+    List<CosmeticService> findByNameWhereNameStartWithLetter(final String letter);
+
+    @Query(value = "SELECT s from CosmeticService s where price > :price")
+    List<CosmeticService> findAllByPriceGraterThenGivenPrice(final Integer price);
+
+    List<CosmeticService> findAllByType(final String type);
 
     @Query(value = "SELECT c from CosmeticService c order by c.price desc")
     List<CosmeticService> findTheMostExpensiveService();
@@ -16,5 +22,5 @@ public interface CosmeticServiceRepository extends JpaRepository<CosmeticService
     @Query(value = "SELECT c from CosmeticService c order by c.price asc")
     List<CosmeticService> findTheCheapestService();
 
-    Integer countServicesByType(String type);
+    Integer countServicesByType(final String type);
 }

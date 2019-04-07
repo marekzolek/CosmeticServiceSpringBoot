@@ -6,6 +6,7 @@ import com.marekzolek.model.CosmeticService;
 import com.marekzolek.model.CosmeticServiceCategory;
 import com.marekzolek.repository.CosmeticServiceCategoryRepository;
 import com.marekzolek.repository.CosmeticServiceRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -22,6 +23,11 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CosmeticServiceServiceImplTest {
 
+    CosmeticService cosmeticService1;
+    CosmeticService cosmeticService2;
+    CosmeticServiceCategory cosmeticServiceCategory1;
+    List<CosmeticService> cosmeticServices = new ArrayList<>();
+
     @InjectMocks
     private CosmeticServiceServiceImpl cosmeticServiceService;
 
@@ -31,14 +37,39 @@ public class CosmeticServiceServiceImplTest {
     @Mock
     private CosmeticServiceCategoryRepository cosmeticServiceCategoryRepository;
 
+    @Before
+    public void init() {
+
+        cosmeticServiceCategory1 = new CosmeticServiceCategory.CosmeticServiceCategoryBuilder()
+                .id(1L)
+                .name("AA")
+                .cosmeticServices(null)
+                .build();
+
+        cosmeticService1 = new CosmeticService.CosmeticServiceBuilder()
+                .name("AA")
+                .price(250)
+                .type("M")
+                .category(cosmeticServiceCategory1)
+                .build();
+        cosmeticService2 = new CosmeticService.CosmeticServiceBuilder()
+                .name("BB")
+                .price(200)
+                .type("F")
+                .category(null)
+                .build();
+
+        cosmeticServices.add(cosmeticService1);
+        cosmeticServices.add(cosmeticService2);
+
+    }
+
     @Test
     public void add() {
 
-        CosmeticService cosmeticService = new CosmeticService();
+        when(cosmeticServiceRepository.save(cosmeticService1)).thenReturn(cosmeticService1);
 
-        when(cosmeticServiceRepository.save(cosmeticService)).thenReturn(cosmeticService);
-
-        assertEquals(cosmeticService, cosmeticServiceService.add(cosmeticService));
+        assertEquals(cosmeticService1, cosmeticServiceService.add(cosmeticService1));
     }
 
     @Test
@@ -51,22 +82,13 @@ public class CosmeticServiceServiceImplTest {
     @Test
     public void findOne() throws CosmeticServiceNotFoundException {
 
-        CosmeticService cosmeticService = new CosmeticService();
+        when(cosmeticServiceRepository.findById(1L)).thenReturn(Optional.of(cosmeticService1));
 
-        when(cosmeticServiceRepository.findById(1L)).thenReturn(Optional.of(cosmeticService));
-
-        assertEquals(cosmeticService, cosmeticServiceService.findOne(1L));
+        assertEquals(cosmeticService1, cosmeticServiceService.findOne(1L));
     }
 
     @Test
     public void findAll() {
-
-        CosmeticService cosmeticService1 = new CosmeticService();
-        CosmeticService cosmeticService2 = new CosmeticService();
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService1);
-        cosmeticServices.add(cosmeticService2);
 
         when(cosmeticServiceRepository.findAll()).thenReturn(cosmeticServices);
 
@@ -95,10 +117,7 @@ public class CosmeticServiceServiceImplTest {
     @Test
     public void findAllByType() {
 
-        CosmeticService cosmeticService1 = new CosmeticService(null, null, "M", null);
-        CosmeticService cosmeticService2 = new CosmeticService(null, null, "F", null);
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
+        cosmeticServices.clear();
         cosmeticServices.add(cosmeticService1);
 
         when(cosmeticServiceRepository.findAllByType("M")).thenReturn(cosmeticServices);
@@ -109,38 +128,27 @@ public class CosmeticServiceServiceImplTest {
     @Test
     public void findTheMostExpensiveService() {
 
-        CosmeticService cosmeticService = new CosmeticService();
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService);
+        cosmeticServices.clear();
+        cosmeticServices.add(cosmeticService1);
 
         when(cosmeticServiceRepository.findTheMostExpensiveService()).thenReturn(cosmeticServices);
 
-        assertEquals(cosmeticService, cosmeticServiceService.findTheMostExpensiveService());
+        assertEquals(cosmeticService1, cosmeticServiceService.findTheMostExpensiveService());
     }
 
     @Test
     public void findTheCheapestService() {
 
-        CosmeticService cosmeticService = new CosmeticService();
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService);
+        cosmeticServices.clear();
+        cosmeticServices.add(cosmeticService2);
 
         when(cosmeticServiceRepository.findTheCheapestService()).thenReturn(cosmeticServices);
 
-        assertEquals(cosmeticService, cosmeticServiceService.findCheapestService());
+        assertEquals(cosmeticService2, cosmeticServiceService.findCheapestService());
     }
 
     @Test
     public void countServicesByType() {
-
-        CosmeticService cosmeticService1 = new CosmeticService(null, null, "M", null);
-        CosmeticService cosmeticService2 = new CosmeticService(null, null, "F", null);
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService1);
-        cosmeticServices.add(cosmeticService2);
 
         when(cosmeticServiceRepository.countServicesByType("M")).thenReturn(1);
 

@@ -23,17 +23,17 @@ public class CosmeticServiceServiceImpl implements CosmeticServiceService {
     private CosmeticServiceCategoryRepository cosmeticServiceCategoryRepository;
 
     @Override
-    public CosmeticService add(CosmeticService cosmeticService) {
+    public CosmeticService add(final CosmeticService cosmeticService) {
         return cosmeticServiceRepository.save(cosmeticService);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(final Long id) {
         cosmeticServiceRepository.deleteById(id);
     }
 
     @Override
-    public CosmeticService findOne(Long id) throws CosmeticServiceNotFoundException {
+    public CosmeticService findOne(final Long id) throws CosmeticServiceNotFoundException {
 
         CosmeticService cosmeticService;
 
@@ -52,7 +52,7 @@ public class CosmeticServiceServiceImpl implements CosmeticServiceService {
     }
 
     @Override
-    public List<CosmeticService> findCosmeticServicesWithCategoryId(Long id) throws CategoryNotFoundException {
+    public List<CosmeticService> findCosmeticServicesWithCategoryId(final Long id) throws CategoryNotFoundException {
 
         List<CosmeticService> cosmeticServices = new ArrayList<>();
 
@@ -72,7 +72,7 @@ public class CosmeticServiceServiceImpl implements CosmeticServiceService {
     }
 
     @Override
-    public List<CosmeticService> findAllByType(String type) {
+    public List<CosmeticService> findAllByType(final String type) {
         return cosmeticServiceRepository.findAllByType(type);
     }
 
@@ -87,7 +87,19 @@ public class CosmeticServiceServiceImpl implements CosmeticServiceService {
     }
 
     @Override
-    public Integer countServicesByType(String type) {
+    public Integer countServicesByType(final String type) {
         return cosmeticServiceRepository.countServicesByType(type);
+    }
+
+    @Override
+    public List<CosmeticService> findByNameWhereNameStartWithLetter(final String letter) {
+
+        return cosmeticServiceRepository.findByNameWhereNameStartWithLetter(letter);
+
+    }
+
+    @Override
+    public List<CosmeticService> findAllByPriceGraterThenGivenPrice(final Integer price) {
+        return cosmeticServiceRepository.findAllByPriceGraterThenGivenPrice(price);
     }
 }

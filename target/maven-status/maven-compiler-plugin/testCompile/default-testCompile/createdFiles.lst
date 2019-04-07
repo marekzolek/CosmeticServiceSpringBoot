@@ -1,0 +1,9 @@
+com\marekzolek\service\CosmeticServiceServiceImplTest.class
+com\marekzolek\controller\CosmeticServiceControllerTest.class
+com\marekzolek\AppTest.class
+com\marekzolek\service\CosmeticServiceCategoryServiceImplTest.class
+com\marekzolek\controller\CosmeticServiceHistoryControllerTest.class
+com\marekzolek\controller\CosmeticServiceCategoryControllerTest.class
+com\marekzolek\controller\CustomerControllerTest.class
+com\marekzolek\service\CustomerServiceImplTest.class
+com\marekzolek\service\CosmeticServicesHistoryServiceImplTest.class

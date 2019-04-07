@@ -25,8 +25,52 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<CosmeticServicesHistory> history = new ArrayList<>();
 
+    public static class CustomerBuilder{
 
-    public Customer(Long pesel, String name, String surname) {
+        private Long id;
+        private Long pesel;
+        private String name;
+        private String surname;
+        private List<CosmeticServicesHistory> history = new ArrayList<>();
+
+        public CustomerBuilder id(final Long id){
+            this.id = id;
+            return this;
+        }
+
+        public CustomerBuilder pesel (final Long pesel){
+            this.pesel = pesel;
+            return this;
+        }
+
+        public CustomerBuilder name(final String name){
+            this.name = name;
+            return this;
+        }
+
+        public CustomerBuilder surname(final String surname){
+            this.surname = surname;
+            return this;
+        }
+
+        public CustomerBuilder history(final List<CosmeticServicesHistory> history){
+            this.history = history;
+            return this;
+        }
+
+        public Customer build(){
+            Customer customer = new Customer();
+            customer.id = this.id;
+            customer.pesel = this.pesel;
+            customer.name = this.name;
+            customer.surname = this.surname;
+            customer.history = this.history;
+            return customer;
+        }
+    }
+
+
+    public Customer(final Long pesel, final String name, final String surname) {
         this.pesel = pesel;
         this.name = name;
         this.surname = surname;
@@ -53,14 +97,22 @@ public class Customer {
 
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Customer customer = (Customer) o;
 
-        if (pesel != null ? !pesel.equals(customer.pesel) : customer.pesel != null) return false;
-        if (name != null ? !name.equals(customer.name) : customer.name != null) return false;
+        if (pesel != null ? !pesel.equals(customer.pesel) : customer.pesel != null) {
+            return false;
+        }
+        if (name != null ? !name.equals(customer.name) : customer.name != null) {
+            return false;
+        }
         return surname != null ? surname.equals(customer.surname) : customer.surname == null;
     }
 

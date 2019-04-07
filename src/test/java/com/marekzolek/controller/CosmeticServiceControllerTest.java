@@ -24,6 +24,11 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CosmeticServiceControllerTest {
 
+    CosmeticService cosmeticService1;
+    CosmeticService cosmeticService2;
+    CosmeticServiceCategory cosmeticServiceCategory1;
+    List<CosmeticService> cosmeticServices = new ArrayList<>();
+
     @InjectMocks
     private CosmeticServiceController cosmeticServiceController;
 
@@ -34,17 +39,40 @@ public class CosmeticServiceControllerTest {
 
     @Before
     public void init() {
+
         mockMvc = MockMvcBuilders.standaloneSetup(cosmeticServiceController).build();
+
+        cosmeticServiceCategory1 = new CosmeticServiceCategory.CosmeticServiceCategoryBuilder()
+                .id(1L)
+                .name("AA")
+                .cosmeticServices(null)
+                .build();
+
+        cosmeticService1 = new CosmeticService.CosmeticServiceBuilder()
+                .name("AA")
+                .price(250)
+                .type("M")
+                .category(cosmeticServiceCategory1)
+                .build();
+        cosmeticService2 = new CosmeticService.CosmeticServiceBuilder()
+                .name("BB")
+                .price(200)
+                .type("F")
+                .category(null)
+                .build();
+
+        cosmeticServices.add(cosmeticService1);
+        cosmeticServices.add(cosmeticService2);
+
     }
 
     @Test
     public void add() {
 
-        CosmeticService cosmeticService = new CosmeticService();
 
-        when(cosmeticServiceService.add(cosmeticService)).thenReturn(cosmeticService);
+        when(cosmeticServiceService.add(cosmeticService1)).thenReturn(cosmeticService1);
 
-        assertEquals(cosmeticService, cosmeticServiceController.add(cosmeticService));
+        assertEquals(cosmeticService1, cosmeticServiceController.add(cosmeticService1));
     }
 
     @Test
@@ -57,26 +85,17 @@ public class CosmeticServiceControllerTest {
     @Test
     public void findOne() throws Exception {
 
-        CosmeticService cosmeticService = new CosmeticService("AA", 250, "M", null);
-
-        when(cosmeticServiceService.findOne(1L)).thenReturn(cosmeticService);
+        when(cosmeticServiceService.findOne(1L)).thenReturn(cosmeticService1);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticService/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath(".name").value("AA"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("AA"));
 
-        assertEquals(cosmeticService, cosmeticServiceController.findOne(1L));
+        assertEquals(cosmeticService1, cosmeticServiceController.findOne(1L));
     }
 
     @Test
     public void findAllCosmeticServices() throws Exception {
-
-        CosmeticService cosmeticService1 = new CosmeticService("AA", 250, "M", null);
-        CosmeticService cosmeticService2 = new CosmeticService("BB", 200, "F", null);
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService1);
-        cosmeticServices.add(cosmeticService2);
 
         when(cosmeticServiceService.findAll()).thenReturn(cosmeticServices);
 
@@ -90,14 +109,6 @@ public class CosmeticServiceControllerTest {
     @Test
     public void findCosmeticServicesWithCategoryId() throws Exception {
 
-        CosmeticServiceCategory cosmeticServiceCategory = new CosmeticServiceCategory(1L, null, null);
-
-        CosmeticService cosmeticService1 = new CosmeticService("AA", 250, "M", cosmeticServiceCategory);
-        CosmeticService cosmeticService2 = new CosmeticService("BB", 200, "F", cosmeticServiceCategory);
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService1);
-        cosmeticServices.add(cosmeticService2);
 
         when(cosmeticServiceService.findCosmeticServicesWithCategoryId(1L)).thenReturn(cosmeticServices);
 
@@ -111,12 +122,6 @@ public class CosmeticServiceControllerTest {
     @Test
     public void findAllByType() throws Exception {
 
-        CosmeticService cosmeticService1 = new CosmeticService("AA", 250, "M", null);
-        CosmeticService cosmeticService2 = new CosmeticService("BB", 200, "F", null);
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService1);
-
         when(cosmeticServiceService.findAllByType("M")).thenReturn(cosmeticServices);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticService/type?type=M"))
@@ -129,46 +134,29 @@ public class CosmeticServiceControllerTest {
     @Test
     public void findTheMostExpensiveService() throws Exception {
 
-        CosmeticService cosmeticService = new CosmeticService("AA", 250, "M", null);
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService);
-
-        when(cosmeticServiceService.findTheMostExpensiveService()).thenReturn(cosmeticService);
+        when(cosmeticServiceService.findTheMostExpensiveService()).thenReturn(cosmeticService1);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticService/theMostExpensiveService"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath(".name").value("AA"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("AA"));
 
-        assertEquals(cosmeticService, cosmeticServiceController.findTheMostExpensiveService());
+        assertEquals(cosmeticService1, cosmeticServiceController.findTheMostExpensiveService());
     }
 
     @Test
     public void findTheCheapestService() throws Exception {
 
-        CosmeticService cosmeticService = new CosmeticService("AA", 250, "M", null);
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService);
-
-        when(cosmeticServiceService.findCheapestService()).thenReturn(cosmeticService);
+        when(cosmeticServiceService.findCheapestService()).thenReturn(cosmeticService1);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticService/theCheapestService"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath(".name").value("AA"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("AA"));
 
-        assertEquals(cosmeticService, cosmeticServiceController.findTheCheapestService());
+        assertEquals(cosmeticService1, cosmeticServiceController.findTheCheapestService());
     }
 
     @Test
     public void countServicesByType() throws Exception {
-
-        CosmeticService cosmeticService1 = new CosmeticService("AA", 250, "M", null);
-        CosmeticService cosmeticService2 = new CosmeticService("BB", 200, "F", null);
-
-        List<CosmeticService> cosmeticServices = new ArrayList<>();
-        cosmeticServices.add(cosmeticService1);
-        cosmeticServices.add(cosmeticService2);
 
         when(cosmeticServiceService.countServicesByType("M")).thenReturn(1);
 

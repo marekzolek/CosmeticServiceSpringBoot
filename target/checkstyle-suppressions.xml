@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+        "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+        "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+
+<!--Checkstyle-suppressions.xml exclude specific files/directories in project from rules while checkstyle is running-->
+<!--Argruments:-->
+<!--files - file or directory to exclude-->
+<!--checks - specific rule to exclude or ".*" for all rules-->
+<suppressions>
+    <suppress files="[/\\]target[/\\]" checks=".*"/>
+
+    <suppress files=".*[\\/]src[\\/](test|it)[\\/]" checks="MagicNumber"/>
+    <suppress files=".*[\\/]src[\\/](test|it)[\\/]" checks="DesignForExtension"/>
+    <!--<suppress files="LoopAndArrayTest.java" checks="MagicNumber"/>-->
+    <!--<suppress files="LoopAndArrayTest.java" checks="whitespace"/>-->
+    <suppress files="[/\\]src[/\\]" checks="MagicNumber"/>
+    <suppress files="[/\\]src[/\\]" checks="DesignForExtension"/>
+</suppressions>
+
+        <!--http://checkstyle.sourceforge.net/config_coding.html-->

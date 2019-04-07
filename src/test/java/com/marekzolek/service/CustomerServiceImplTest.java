@@ -9,11 +9,11 @@ import com.marekzolek.model.CosmeticServicesHistory;
 import com.marekzolek.model.Customer;
 import com.marekzolek.repository.CosmeticServicesHistoryRepository;
 import com.marekzolek.repository.CustomerRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.text.ParseException;
@@ -21,11 +21,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CustomerServiceImplTest {
+
+    Customer customer1;
+    Customer customer2;
+    CosmeticService cosmeticService1;
+    CosmeticService cosmeticService2;
+    CosmeticServicesHistory cosmeticServicesHistory1;
+    CosmeticServicesHistory cosmeticServicesHistory2;
+    CosmeticServiceCategory cosmeticServiceCategory1;
+    CosmeticServiceCategory cosmeticServiceCategory2;
+    CustomerDto customerDto1 = new CustomerDto();
+    CustomerDto customerDto2 = new CustomerDto();
+
+    List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
+    List<Customer> customers = new ArrayList<>();
+    List<CustomerDto> dtoCustomers = new ArrayList<>();
 
     @InjectMocks
     private CustomerServiceImpl customerService;
@@ -39,14 +55,78 @@ public class CustomerServiceImplTest {
     @Mock
     private CustomerDtoMapper customerDtoMapper;
 
+    @Before
+    public void init() {
+
+        customer1 = new Customer.CustomerBuilder()
+                .pesel(93546448266L)
+                .name("ANIA")
+                .surname("KOWALSKA")
+                .build();
+
+        customer2 = new Customer.CustomerBuilder()
+                .pesel(93546458293L)
+                .name("TOMEK")
+                .surname("KOWALSKI")
+                .build();
+
+        customers.add(customer1);
+        customers.add(customer2);
+
+        customerDto1.setPesel(93546448266L);
+        customerDto1.setName("ANIA");
+        customerDto1.setSurname("KOWALSKA");
+
+        customerDto2.setPesel(93546458293L);
+        customerDto2.setName("TOMEK");
+        customerDto2.setSurname("KOWALSKI");
+
+        dtoCustomers.add(customerDto1);
+        dtoCustomers.add(customerDto2);
+
+        cosmeticServiceCategory1 = new CosmeticServiceCategory.CosmeticServiceCategoryBuilder()
+                .id(1L)
+                .build();
+        cosmeticServiceCategory2 = new CosmeticServiceCategory.CosmeticServiceCategoryBuilder()
+                .id(2L)
+                .build();
+
+        cosmeticService1 = new CosmeticService.CosmeticServiceBuilder()
+                .name("AA")
+                .price(250)
+                .type("M")
+                .category(cosmeticServiceCategory1)
+                .build();
+
+        cosmeticService2 = new CosmeticService.CosmeticServiceBuilder()
+                .name("BB")
+                .price(200)
+                .type("M")
+                .category(cosmeticServiceCategory2)
+                .build();
+
+        cosmeticServicesHistory1 = new CosmeticServicesHistory.CosmeticServicesHistoryBuilder()
+                .cosmeticService(cosmeticService1)
+                .customer(customer1)
+                .date("2017-03-04")
+                .build();
+
+        cosmeticServicesHistory2 = new CosmeticServicesHistory.CosmeticServicesHistoryBuilder()
+                .cosmeticService(cosmeticService2)
+                .customer(customer2)
+                .date("2017-02-04")
+                .build();
+
+        cosmeticServicesHistories.add(cosmeticServicesHistory1);
+        cosmeticServicesHistories.add(cosmeticServicesHistory2);
+    }
+
     @Test
     public void add() {
 
-        Customer customer = new Customer(9354648266L, "ANIA", "KOWALSKA");
+        when(customerRepository.save(customer1)).thenReturn(customer1);
 
-        when(customerRepository.save(customer)).thenReturn(customer);
-
-        assertEquals(customer, customerService.add(customer));
+        assertEquals(customer1, customerService.add(customer1));
     }
 
     @Test
@@ -60,22 +140,13 @@ public class CustomerServiceImplTest {
     @Test
     public void findOne() throws CustomerNotFoundException {
 
-        Customer customer = new Customer(9354648266L, "ANIA", "KOWALSKA");
+        when(customerRepository.findById(101L)).thenReturn(Optional.of(customer1));
 
-        when(customerRepository.findById(101L)).thenReturn(Optional.of(customer));
-
-        assertEquals(customer, customerService.findOne(101L));
+        assertEquals(customer1, customerService.findOne(101L));
     }
 
     @Test
     public void findAll() {
-
-        Customer customer1 = new Customer(9354648266L, "ANIA", "KOWALSKA");
-        Customer customer2 = new Customer(9354648263L, "Tomek", "KOWALSKi");
-
-        List<Customer> customers = new ArrayList<>();
-        customers.add(customer1);
-        customers.add(customer2);
 
         when(customerRepository.findAll()).thenReturn(customers);
 
@@ -85,13 +156,6 @@ public class CustomerServiceImplTest {
     @Test
     public void customersBornBeforeYear() {
 
-        Customer customer1 = new Customer(9354648266L, "ANIA", "KOWALSKA");
-        Customer customer2 = new Customer(9354648263L, "Tomek", "KOWALSKi");
-
-        List<Customer> customers = new ArrayList<>();
-        customers.add(customer1);
-        customers.add(customer2);
-
         when(customerRepository.findAll()).thenReturn(customers);
 
         assertEquals(customers, customerService.customersBornBeforeYear(94));
@@ -99,20 +163,6 @@ public class CustomerServiceImplTest {
 
     @Test
     public void customersWhichHadServicesInYear() throws ParseException {
-
-        Customer customer1 = new Customer(9354648266L, "ANIA", "KOWALSKA");
-        Customer customer2 = new Customer(9354648263L, "Tomek", "KOWALSKi");
-
-        CosmeticServicesHistory cosmeticServicesHistory = new CosmeticServicesHistory(new CosmeticService(), customer1, "2017-03-04");
-        CosmeticServicesHistory cosmeticServicesHistory1 = new CosmeticServicesHistory(new CosmeticService(), customer2, "2017-03-04");
-
-        List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
-        cosmeticServicesHistories.add(cosmeticServicesHistory);
-        cosmeticServicesHistories.add(cosmeticServicesHistory1);
-
-        List<Customer> customers = new ArrayList<>();
-        customers.add(customer1);
-        customers.add(customer2);
 
         when(cosmeticServicesHistoryRepository.findAll()).thenReturn(cosmeticServicesHistories);
 
@@ -122,79 +172,33 @@ public class CustomerServiceImplTest {
     @Test
     public void womanBornBeforeYear() {
 
-        Customer customer1 = new Customer(93546482664L, "ANIA", "KOWALSKA");
-        Customer customer2 = new Customer(93546482631L, "Tomek", "KOWALSKi");
-
-        List<Customer> customers = new ArrayList<>();
-        customers.add(customer1);
-
         when(customerRepository.findAll()).thenReturn(customers);
 
-        assertEquals(customers, customerService.womanBornBeforeYear(94));
+        assertEquals(customer1, customerService.womanBornBeforeYear(94).get(0));
     }
 
     @Test
     public void mansBornBeforeYear() {
 
-        Customer customer1 = new Customer(93546482664L, "ANIA", "KOWALSKA");
-        Customer customer2 = new Customer(93546482631L, "Tomek", "KOWALSKi");
-
-        List<Customer> customers = new ArrayList<>();
-        customers.add(customer2);
-
         when(customerRepository.findAll()).thenReturn(customers);
 
-        assertEquals(customers, customerService.mansBornBeforeYear(94));
+        assertEquals(customer2, customerService.mansBornBeforeYear(94).get(0));
     }
 
     @Test
     public void customersWithSumOfServicesInGivenYear() throws ParseException {
 
-        Customer customer1 = new Customer(9354648266L, "ANIA", "KOWALSKA");
-        Customer customer2 = new Customer(9354648263L, "TOMEK", "KOWALSKI");
-
-        CustomerDto customerDto1 = new CustomerDto();
-        customerDto1.setPesel(9354648266L);
-        customerDto1.setName("ANIA");
-        customerDto1.setSurname("KOWALSKA");
-
-        CustomerDto customerDto2 = new CustomerDto();
-        customerDto2.setPesel(9354648263L);
-        customerDto2.setName("TOMEK");
-        customerDto2.setSurname("KOWALSKI");
-
-        CosmeticServicesHistory cosmeticServicesHistory = new CosmeticServicesHistory(new CosmeticService(), customer1, "2017-03-04");
-        CosmeticServicesHistory cosmeticServicesHistory1 = new CosmeticServicesHistory(new CosmeticService(), customer2, "2017-03-04");
-
-        List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
-        cosmeticServicesHistories.add(cosmeticServicesHistory);
-        cosmeticServicesHistories.add(cosmeticServicesHistory1);
-
-        List<Customer> customers = new ArrayList<>();
-        customers.add(customer1);
-        customers.add(customer2);
-
         when(customerDtoMapper.customerToDto(customer1)).thenReturn(customerDto1);
         when(customerDtoMapper.customerToDto(customer2)).thenReturn(customerDto2);
 
-        List<CustomerDto> dtoCustomers = new ArrayList<>();
-        dtoCustomers.add(customerDto1);
-        dtoCustomers.add(customerDto2);
-
         when(cosmeticServicesHistoryRepository.findAll()).thenReturn(cosmeticServicesHistories);
-        assertEquals(dtoCustomers, customerService.customersWithSumOfServicesInGivenYear(2017));
+        assertTrue(customerService.customersWithSumOfServicesInGivenYear(2017).contains(customerDto1));
+        assertEquals(2, customerService.customersWithSumOfServicesInGivenYear(2017).size());
 
     }
 
     @Test
     public void customersWhichHadGivenService() {
-
-        Customer customer1 = new Customer(93546482664L, "ANIA", "KOWALSKA");
-        Customer customer2 = new Customer(93546482631L, "Tomek", "KOWALSKi");
-
-        List<Customer> customers = new ArrayList<>();
-        customers.add(customer1);
-        customers.add(customer2);
 
         when(customerRepository.customersWhichHadGivenService(94L)).thenReturn(customers);
 
@@ -205,26 +209,11 @@ public class CustomerServiceImplTest {
     @Test
     public void customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear() throws ParseException {
 
-        Customer customer1 = new Customer(9354648266L, "ANIA", "KOWALSKA");
-        Customer customer2 = new Customer(9354648263L, "Tomek", "KOWALSKi");
-
-        CosmeticServiceCategory cosmeticServiceCategory = new CosmeticServiceCategory(2L, "Depilacja Damska", null);
-
-        CosmeticService cosmeticService = new CosmeticService("Depilacja damska", 250, "F", cosmeticServiceCategory);
-
-        CosmeticServicesHistory cosmeticServicesHistory = new CosmeticServicesHistory(cosmeticService, customer1, "2017-03-04");
-        CosmeticServicesHistory cosmeticServicesHistory1 = new CosmeticServicesHistory(cosmeticService, customer2, "2017-03-04");
-
-        List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
-        cosmeticServicesHistories.add(cosmeticServicesHistory);
-        cosmeticServicesHistories.add(cosmeticServicesHistory1);
-
-        List<Customer> customers = new ArrayList<>();
+        customers.clear();
         customers.add(customer1);
-        customers.add(customer2);
 
         when(cosmeticServicesHistoryRepository.findAll()).thenReturn(cosmeticServicesHistories);
 
-        assertEquals(customers, customerService.customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear(93, 2L, 2017));
+        assertEquals(customers, customerService.customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear(93, 1L, 2017));
     }
 }

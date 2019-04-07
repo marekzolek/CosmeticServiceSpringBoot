@@ -17,8 +17,45 @@ public class CosmeticServicesHistory {
 
     private String date;
 
+    public static class CosmeticServicesHistoryBuilder{
 
-    public CosmeticServicesHistory(CosmeticService cosmeticService, Customer customer, String date) {
+        private Long id;
+        private CosmeticService cosmeticService;
+        private Customer customer;
+        private String date;
+
+        public CosmeticServicesHistoryBuilder id(final Long id){
+            this.id = id;
+            return this;
+        }
+
+        public CosmeticServicesHistoryBuilder cosmeticService(final CosmeticService cosmeticService){
+            this.cosmeticService = cosmeticService;
+            return this;
+        }
+
+        public CosmeticServicesHistoryBuilder customer(final Customer customer){
+            this.customer = customer;
+            return this;
+        }
+
+        public CosmeticServicesHistoryBuilder date(final String date){
+            this.date = date;
+            return this;
+        }
+
+        public CosmeticServicesHistory build(){
+            CosmeticServicesHistory cosmeticServicesHistory = new CosmeticServicesHistory();
+            cosmeticServicesHistory.id = this.id;
+            cosmeticServicesHistory.cosmeticService = this.cosmeticService;
+            cosmeticServicesHistory.customer = this.customer;
+            cosmeticServicesHistory.date = this.date;
+            return cosmeticServicesHistory;
+        }
+    }
+
+
+    public CosmeticServicesHistory(final CosmeticService cosmeticService, final Customer customer, final String date) {
         this.cosmeticService = cosmeticService;
         this.customer = customer;
         this.date = date;
@@ -36,12 +73,11 @@ public class CosmeticServicesHistory {
         return date;
     }
 
-
     public CosmeticService getCosmeticService() {
         return cosmeticService;
     }
 
-    public void setCosmeticService(CosmeticService cosmeticService) {
+    public void setCosmeticService(final CosmeticService cosmeticService) {
         this.cosmeticService = cosmeticService;
     }
 
@@ -49,11 +85,11 @@ public class CosmeticServicesHistory {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(final Customer customer) {
         this.customer = customer;
     }
 
-    public void setDate(String date) {
+    public void setDate(final String date) {
         this.date = date;
     }
 }

@@ -5,16 +5,12 @@ import com.marekzolek.exception.CosmeticServiceNotFoundException;
 import com.marekzolek.exception.CustomerNotFoundException;
 import com.marekzolek.exception.HistoryNotFoundException;
 import com.marekzolek.model.CosmeticService;
-import com.marekzolek.model.CosmeticServiceCategory;
 import com.marekzolek.model.CosmeticServicesHistory;
 import com.marekzolek.service.CosmeticServicesHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 
 @RestController
@@ -25,17 +21,17 @@ public class CosmeticServiceHistoryController {
     private CosmeticServicesHistoryService cosmeticServicesHistoryService;
 
     @PostMapping("/add")
-    public CosmeticServicesHistory add(@RequestBody CosmeticServicesHistory cosmeticServicesHistory) {
+    public CosmeticServicesHistory add(@RequestBody final CosmeticServicesHistory cosmeticServicesHistory) {
         return cosmeticServicesHistoryService.add(cosmeticServicesHistory);
     }
 
     @DeleteMapping("/delete")
-    public void delete(@RequestParam Long id) throws HistoryNotFoundException {
+    public void delete(@RequestParam final Long id) throws HistoryNotFoundException {
         cosmeticServicesHistoryService.delete(id);
     }
 
     @GetMapping("/{id}")
-    public CosmeticServicesHistory findOne(@PathVariable Long id) {
+    public CosmeticServicesHistory findOne(@PathVariable final Long id) {
         return cosmeticServicesHistoryService.findOne(id);
     }
 
@@ -45,12 +41,12 @@ public class CosmeticServiceHistoryController {
     }
 
     @GetMapping("/sum")
-    public Integer sum(@RequestParam Long customerId) throws CustomerNotFoundException {
+    public Integer sum(@RequestParam final Long customerId) throws CustomerNotFoundException {
         return cosmeticServicesHistoryService.sumOfPricesAllServicesOfGivenCustomerTest(customerId);
     }
 
     @GetMapping("/numberOfServiceOfCustomer")
-    public Integer countEachServicesOfGivenCustomer(@RequestParam Long customerId) throws CustomerNotFoundException {
+    public Integer countEachServicesOfGivenCustomer(@RequestParam final Long customerId) throws CustomerNotFoundException {
         return cosmeticServicesHistoryService.countEachServicesOfGivenCustomer(customerId);
     }
 

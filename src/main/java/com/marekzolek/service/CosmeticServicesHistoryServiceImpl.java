@@ -25,12 +25,12 @@ public class CosmeticServicesHistoryServiceImpl implements CosmeticServicesHisto
     private CustomerRepository customerRepository;
 
     @Override
-    public CosmeticServicesHistory add(CosmeticServicesHistory cosmeticServicesHistory) {
+    public CosmeticServicesHistory add(final CosmeticServicesHistory cosmeticServicesHistory) {
         return cosmeticServicesHistoryRepository.save(cosmeticServicesHistory);
     }
 
     @Override
-    public void delete(Long id) throws HistoryNotFoundException {
+    public void delete(final Long id) throws HistoryNotFoundException {
         if (cosmeticServicesHistoryRepository.findById(id).isPresent()) {
             cosmeticServicesHistoryRepository.deleteById(id);
         } else {
@@ -39,7 +39,7 @@ public class CosmeticServicesHistoryServiceImpl implements CosmeticServicesHisto
     }
 
     @Override
-    public CosmeticServicesHistory findOne(Long id) {
+    public CosmeticServicesHistory findOne(final Long id) {
         CosmeticServicesHistory cosmeticServicesHistory = null;
 
         Optional<CosmeticServicesHistory> cosmeticServicesHistoryOptional = cosmeticServicesHistoryRepository.findById(id);
@@ -61,7 +61,7 @@ public class CosmeticServicesHistoryServiceImpl implements CosmeticServicesHisto
     }
 
     @Override
-    public Integer sumOfPricesAllServicesOfGivenCustomerTest(Long customerId) throws CustomerNotFoundException {
+    public Integer sumOfPricesAllServicesOfGivenCustomerTest(final Long customerId) throws CustomerNotFoundException {
         Integer result;
 
         if (customerRepository.findById(customerId).isPresent()) {
@@ -74,7 +74,7 @@ public class CosmeticServicesHistoryServiceImpl implements CosmeticServicesHisto
     }
 
     @Override
-    public Integer countEachServicesOfGivenCustomer(Long customerId) throws CustomerNotFoundException {
+    public Integer countEachServicesOfGivenCustomer(final Long customerId) throws CustomerNotFoundException {
 
         Integer result;
 

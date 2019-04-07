@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.18">
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\App.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\configuration\UrlConfiguration.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\controller\CosmeticServiceCategoryController.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\controller\CosmeticServiceController.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\controller\CosmeticServiceHistoryController.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\controller\CustomerController.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\dto\CustomerDto.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\dto\mapperDto\CustomerDtoMapper.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\exception\CategoryNotFoundException.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\exception\CosmeticServiceNotFoundException.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\exception\CustomerNotFoundException.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\exception\HistoryNotFoundException.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\model\CosmeticService.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\model\CosmeticServiceCategory.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\model\CosmeticServicesHistory.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\model\Customer.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\repository\CosmeticServiceCategoryRepository.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\repository\CosmeticServiceRepository.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\repository\CosmeticServicesHistoryRepository.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\repository\CustomerRepository.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\service\CosmeticServiceCategoryService.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\service\CosmeticServiceCategoryServiceImpl.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\service\CosmeticServiceService.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\service\CosmeticServiceServiceImpl.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\service\CosmeticServicesHistoryService.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\service\CosmeticServicesHistoryServiceImpl.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\service\CustomerService.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\java\com\marekzolek\service\CustomerServiceImpl.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\test\java\com\marekzolek\AppTest.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\test\java\com\marekzolek\controller\CosmeticServiceCategoryControllerTest.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\test\java\com\marekzolek\controller\CosmeticServiceControllerTest.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\test\java\com\marekzolek\controller\CosmeticServiceHistoryControllerTest.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\test\java\com\marekzolek\controller\CustomerControllerTest.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\test\java\com\marekzolek\service\CosmeticServiceCategoryServiceImplTest.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\test\java\com\marekzolek\service\CosmeticServiceServiceImplTest.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\test\java\com\marekzolek\service\CosmeticServicesHistoryServiceImplTest.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\test\java\com\marekzolek\service\CustomerServiceImplTest.java">
+</file>
+<file name="D:\Pulpit\B2BNetwork\B2BNetwork - projekty z zajęć\cosmeticServicesSpringApp\src\main\resources\application.properties">
+</file>
+</checkstyle>

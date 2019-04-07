@@ -9,25 +9,25 @@ import java.util.List;
 
 public interface CustomerService {
 
-    Customer add(Customer customer);
+    Customer add(final Customer customer);
 
-    void delete(Long id);
+    void delete(final Long id);
 
-    Customer findOne(Long id) throws CustomerNotFoundException;
+    Customer findOne(final Long id) throws CustomerNotFoundException;
 
     List<Customer> findAll();
 
-    List<Customer> customersBornBeforeYear(Integer year);
+    List<Customer> customersBornBeforeYear(final Integer year);
 
-    List<Customer> customersWhichHadServicesInYear(Integer year) throws ParseException;
+    List<Customer> customersWhichHadServicesInYear(final Integer year) throws ParseException;
 
-    List<Customer> womanBornBeforeYear(Integer year);
+    List<Customer> womanBornBeforeYear(final Integer year);
 
-    List<Customer> mansBornBeforeYear(Integer year);
+    List<Customer> mansBornBeforeYear(final Integer year);
 
-    List<CustomerDto> customersWithSumOfServicesInGivenYear(Integer year) throws ParseException;
+    List<CustomerDto> customersWithSumOfServicesInGivenYear(final Integer year) throws ParseException;
 
-    List<Customer> customersWhichHadGivenService(Long serviceId);
+    List<Customer> customersWhichHadGivenService(final Long serviceId);
 
-    List<Customer> customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear(Integer yearOfBirth, Long categoryId, Integer yearOfService) throws ParseException;
+    List<Customer> customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear(final Integer yearOfBirth, final Long categoryId, final Integer yearOfService) throws ParseException;
 }

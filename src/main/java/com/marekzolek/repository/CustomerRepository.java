@@ -9,5 +9,5 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     @Query(value = "select h.customer from CosmeticServicesHistory h where h.cosmeticService.id=?1")
-    List<Customer> customersWhichHadGivenService(Long serviceId);
+    List<Customer> customersWhichHadGivenService(final Long serviceId);
 }

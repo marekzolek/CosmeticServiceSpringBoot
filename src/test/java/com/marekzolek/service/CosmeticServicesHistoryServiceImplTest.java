@@ -7,6 +7,7 @@ import com.marekzolek.model.CosmeticServicesHistory;
 import com.marekzolek.model.Customer;
 import com.marekzolek.repository.CosmeticServicesHistoryRepository;
 import com.marekzolek.repository.CustomerRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -25,6 +26,14 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class CosmeticServicesHistoryServiceImplTest {
 
+    CosmeticServicesHistory cosmeticServicesHistory1;
+    CosmeticServicesHistory cosmeticServicesHistory2;
+    CosmeticServicesHistory cosmeticServicesHistory3;
+    CosmeticService cosmeticService1;
+    CosmeticService cosmeticService2;
+
+    List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
+
     @InjectMocks
     private CosmeticServicesHistoryServiceImpl cosmeticServicesHistoryService;
 
@@ -34,14 +43,49 @@ public class CosmeticServicesHistoryServiceImplTest {
     @Mock
     private CustomerRepository customerRepository;
 
+    @Before
+    public void init() {
+
+        cosmeticService1 = new CosmeticService.CosmeticServiceBuilder()
+                .name("AA")
+                .price(250)
+                .type("M")
+                .category(null)
+                .build();
+        cosmeticService2 = new CosmeticService.CosmeticServiceBuilder()
+                .name("BB")
+                .price(200)
+                .type("F")
+                .category(null)
+                .build();
+
+        cosmeticServicesHistory1 = new CosmeticServicesHistory.CosmeticServicesHistoryBuilder()
+                .cosmeticService(cosmeticService1)
+                .date("2017-03-04")
+                .build();
+
+        cosmeticServicesHistory2 = new CosmeticServicesHistory.CosmeticServicesHistoryBuilder()
+                .cosmeticService(cosmeticService1)
+                .date("2017-02-04")
+                .build();
+
+        cosmeticServicesHistory3 = new CosmeticServicesHistory.CosmeticServicesHistoryBuilder()
+                .cosmeticService(cosmeticService2)
+                .date("2017-02-04")
+                .build();
+
+
+        cosmeticServicesHistories.add(cosmeticServicesHistory1);
+        cosmeticServicesHistories.add(cosmeticServicesHistory2);
+        cosmeticServicesHistories.add(cosmeticServicesHistory3);
+    }
+
     @Test
     public void add() {
 
-        CosmeticServicesHistory cosmeticServicesHistory = new CosmeticServicesHistory();
+        when(cosmeticServicesHistoryRepository.save(cosmeticServicesHistory1)).thenReturn(cosmeticServicesHistory1);
 
-        when(cosmeticServicesHistoryRepository.save(cosmeticServicesHistory)).thenReturn(cosmeticServicesHistory);
-
-        assertEquals(cosmeticServicesHistory, cosmeticServicesHistoryService.add(cosmeticServicesHistory));
+        assertEquals(cosmeticServicesHistory1, cosmeticServicesHistoryService.add(cosmeticServicesHistory1));
     }
 
     @Test
@@ -54,22 +98,13 @@ public class CosmeticServicesHistoryServiceImplTest {
     @Test
     public void findOne() {
 
-        CosmeticServicesHistory cosmeticServicesHistory = new CosmeticServicesHistory();
+        when(cosmeticServicesHistoryRepository.findById(1L)).thenReturn(java.util.Optional.of(cosmeticServicesHistory1));
 
-        when(cosmeticServicesHistoryRepository.findById(1L)).thenReturn(java.util.Optional.of(cosmeticServicesHistory));
-
-        assertEquals(cosmeticServicesHistory, cosmeticServicesHistoryService.findOne(1L));
+        assertEquals(cosmeticServicesHistory1, cosmeticServicesHistoryService.findOne(1L));
     }
 
     @Test
     public void findAll() {
-
-        CosmeticServicesHistory cosmeticServicesHistory1 = new CosmeticServicesHistory();
-        CosmeticServicesHistory cosmeticServicesHistory2 = new CosmeticServicesHistory();
-
-        List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
-        cosmeticServicesHistories.add(cosmeticServicesHistory1);
-        cosmeticServicesHistories.add(cosmeticServicesHistory2);
 
         when(cosmeticServicesHistoryRepository.findAll()).thenReturn(cosmeticServicesHistories);
 
@@ -102,18 +137,6 @@ public class CosmeticServicesHistoryServiceImplTest {
     @Test
     public void theMostPopularService() throws CosmeticServiceNotFoundException {
 
-        CosmeticService cosmeticService1 = new CosmeticService();
-        CosmeticService cosmeticService2 = new CosmeticService();
-
-        CosmeticServicesHistory cosmeticServicesHistory1 = new CosmeticServicesHistory(cosmeticService1, null, null);
-        CosmeticServicesHistory cosmeticServicesHistory2 = new CosmeticServicesHistory(cosmeticService1, null, null);
-        CosmeticServicesHistory cosmeticServicesHistory3 = new CosmeticServicesHistory(cosmeticService2, null, null);
-
-        List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
-        cosmeticServicesHistories.add(cosmeticServicesHistory1);
-        cosmeticServicesHistories.add(cosmeticServicesHistory2);
-        cosmeticServicesHistories.add(cosmeticServicesHistory3);
-
         when(cosmeticServicesHistoryRepository.findAll()).thenReturn(cosmeticServicesHistories);
 
         assertEquals(cosmeticService1, cosmeticServicesHistoryService.theMostPopularService());
@@ -122,20 +145,8 @@ public class CosmeticServicesHistoryServiceImplTest {
     @Test
     public void leastPopularService() throws CosmeticServiceNotFoundException {
 
-        CosmeticService cosmeticService1 = new CosmeticService();
-        CosmeticService cosmeticService2 = new CosmeticService();
-
-        CosmeticServicesHistory cosmeticServicesHistory1 = new CosmeticServicesHistory(cosmeticService1, null, null);
-        CosmeticServicesHistory cosmeticServicesHistory2 = new CosmeticServicesHistory(cosmeticService1, null, null);
-        CosmeticServicesHistory cosmeticServicesHistory3 = new CosmeticServicesHistory(cosmeticService2, null, null);
-
-        List<CosmeticServicesHistory> cosmeticServicesHistories = new ArrayList<>();
-        cosmeticServicesHistories.add(cosmeticServicesHistory1);
-        cosmeticServicesHistories.add(cosmeticServicesHistory2);
-        cosmeticServicesHistories.add(cosmeticServicesHistory3);
-
         when(cosmeticServicesHistoryRepository.findAll()).thenReturn(cosmeticServicesHistories);
 
-        assertEquals(cosmeticService2, cosmeticServicesHistoryService.theMostPopularService());
+        assertEquals(cosmeticService2, cosmeticServicesHistoryService.leastPopularService());
     }
 }

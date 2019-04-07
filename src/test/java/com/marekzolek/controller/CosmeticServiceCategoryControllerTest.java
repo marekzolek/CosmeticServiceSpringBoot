@@ -23,6 +23,19 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CosmeticServiceCategoryControllerTest {
 
+    CosmeticService cosmeticService1;
+    CosmeticService cosmeticService2;
+    CosmeticServiceCategory cosmeticServiceCategory1;
+    CosmeticServiceCategory cosmeticServiceCategory2;
+
+
+    List<CosmeticService> cosmeticServices1 = new ArrayList<>();
+
+    List<CosmeticService> cosmeticServices2 = new ArrayList<>();
+
+    List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
+
+
     @InjectMocks
     private CosmeticServiceCategoryController cosmeticServiceCategoryController;
 
@@ -33,17 +46,49 @@ public class CosmeticServiceCategoryControllerTest {
 
     @Before
     public void init() {
+
         mockMvc = MockMvcBuilders.standaloneSetup(cosmeticServiceCategoryController).build();
+
+        cosmeticService1 = new CosmeticService.CosmeticServiceBuilder()
+                .name("AA")
+                .price(250)
+                .type("M")
+                .category(null)
+                .build();
+        cosmeticService2 = new CosmeticService.CosmeticServiceBuilder()
+                .name("BB")
+                .price(200)
+                .type("F")
+                .category(null)
+                .build();
+
+        cosmeticServices1.add(cosmeticService1);
+
+        cosmeticServices2.add(cosmeticService1);
+        cosmeticServices2.add(cosmeticService2);
+
+        cosmeticServiceCategory1 = new CosmeticServiceCategory.CosmeticServiceCategoryBuilder()
+                .id(1L)
+                .name("AA")
+                .cosmeticServices(cosmeticServices1)
+                .build();
+        cosmeticServiceCategory2 = new CosmeticServiceCategory.CosmeticServiceCategoryBuilder()
+                .id(2L)
+                .name("BB")
+                .cosmeticServices(cosmeticServices2)
+                .build();
+
+        cosmeticServiceCategories.add(cosmeticServiceCategory1);
+        cosmeticServiceCategories.add(cosmeticServiceCategory2);
     }
+
 
     @Test
     public void add() {
 
-        CosmeticServiceCategory cosmeticServiceCategory = new CosmeticServiceCategory();
+        when(cosmeticServiceCategoryService.add(cosmeticServiceCategory1)).thenReturn(cosmeticServiceCategory1);
 
-        when(cosmeticServiceCategoryService.add(cosmeticServiceCategory)).thenReturn(cosmeticServiceCategory);
-
-        assertEquals(cosmeticServiceCategory, cosmeticServiceCategoryController.add(cosmeticServiceCategory));
+        assertEquals(cosmeticServiceCategory1, cosmeticServiceCategoryController.add(cosmeticServiceCategory1));
     }
 
     @Test
@@ -56,45 +101,30 @@ public class CosmeticServiceCategoryControllerTest {
     @Test
     public void findOne() throws Exception {
 
-        CosmeticServiceCategory cosmeticServiceCategory = new CosmeticServiceCategory(1L, "AA", null);
-
-        when(cosmeticServiceCategoryService.findOne(1L)).thenReturn(cosmeticServiceCategory);
+        when(cosmeticServiceCategoryService.findOne(1L)).thenReturn(cosmeticServiceCategory1);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticServiceCategory/1"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath(".name").value("AA"));
 
-        assertEquals(cosmeticServiceCategory, cosmeticServiceCategoryController.findOne(1L));
+        assertEquals(cosmeticServiceCategory1, cosmeticServiceCategoryController.findOne(1L));
     }
 
     @Test
     public void findAll() throws Exception {
 
-        CosmeticServiceCategory cosmeticServiceCategory1 = new CosmeticServiceCategory(1L, "AA", null);
-        CosmeticServiceCategory cosmeticServiceCategory2 = new CosmeticServiceCategory();
-
-        List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
-        cosmeticServiceCategories.add(cosmeticServiceCategory1);
-        cosmeticServiceCategories.add(cosmeticServiceCategory2);
-
         when(cosmeticServiceCategoryService.findAll()).thenReturn(cosmeticServiceCategories);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticServiceCategory/all"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value("AA"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value("AA"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[1].name").value("BB"));
 
         assertEquals(cosmeticServiceCategories, cosmeticServiceCategoryController.findAll());
     }
 
     @Test
     public void namesOfCategoryServiceOfGivenCustomer() throws Exception {
-
-        CosmeticServiceCategory cosmeticServiceCategory1 = new CosmeticServiceCategory(1L, "AA", null);
-        CosmeticServiceCategory cosmeticServiceCategory2 = new CosmeticServiceCategory();
-
-        List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
-        cosmeticServiceCategories.add(cosmeticServiceCategory1);
-        cosmeticServiceCategories.add(cosmeticServiceCategory2);
 
         when(cosmeticServiceCategoryService.namesOfCategoryServiceOfGivenCustomer(1L)).thenReturn(cosmeticServiceCategories);
 
@@ -108,20 +138,6 @@ public class CosmeticServiceCategoryControllerTest {
     @Test
     public void findAllByServiceType() throws Exception {
 
-        CosmeticService cosmeticService1 = new CosmeticService("AA", 250, "M", null);
-        CosmeticService cosmeticService2 = new CosmeticService("BB", 200, "F", null);
-
-        List<CosmeticService> cosmeticServices1 = new ArrayList<>();
-        cosmeticServices1.add(cosmeticService1);
-        List<CosmeticService> cosmeticServices2 = new ArrayList<>();
-        cosmeticServices2.add(cosmeticService2);
-
-        CosmeticServiceCategory cosmeticServiceCategory1 = new CosmeticServiceCategory(1L, null, cosmeticServices1);
-        CosmeticServiceCategory cosmeticServiceCategory2 = new CosmeticServiceCategory(2L, null, cosmeticServices2);
-
-        List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
-        cosmeticServiceCategories.add(cosmeticServiceCategory1);
-
         when(cosmeticServiceCategoryService.findAllByServiceType("M")).thenReturn(cosmeticServiceCategories);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticServiceCategory/havingServicesType?type=M"))
@@ -134,23 +150,6 @@ public class CosmeticServiceCategoryControllerTest {
     @Test
     public void categoryWithTheLargestNumberOfServices() throws Exception {
 
-        CosmeticService cosmeticService1 = new CosmeticService();
-        CosmeticService cosmeticService2 = new CosmeticService();
-
-        List<CosmeticService> cosmeticServices1 = new ArrayList<>();
-        cosmeticServices1.add(cosmeticService1);
-
-        List<CosmeticService> cosmeticServices2 = new ArrayList<>();
-        cosmeticServices2.add(cosmeticService1);
-        cosmeticServices2.add(cosmeticService2);
-
-        CosmeticServiceCategory cosmeticServiceCategory1 = new CosmeticServiceCategory(1L, "AA", cosmeticServices1);
-        CosmeticServiceCategory cosmeticServiceCategory2 = new CosmeticServiceCategory(4L, "BB", cosmeticServices2);
-
-        List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
-        cosmeticServiceCategories.add(cosmeticServiceCategory1);
-        cosmeticServiceCategories.add(cosmeticServiceCategory2);
-
         when(cosmeticServiceCategoryService.categoryWithTheLargestNumberOfServices()).thenReturn(cosmeticServiceCategory2);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/cosmeticServiceCategory/categoryWithTheLargestNumberOfServices"))
@@ -162,23 +161,6 @@ public class CosmeticServiceCategoryControllerTest {
 
     @Test
     public void categoryWithTheLeastNumberOfServices() throws Exception {
-
-        CosmeticService cosmeticService1 = new CosmeticService();
-        CosmeticService cosmeticService2 = new CosmeticService();
-
-        List<CosmeticService> cosmeticServices1 = new ArrayList<>();
-        cosmeticServices1.add(cosmeticService1);
-
-        List<CosmeticService> cosmeticServices2 = new ArrayList<>();
-        cosmeticServices2.add(cosmeticService1);
-        cosmeticServices2.add(cosmeticService2);
-
-        CosmeticServiceCategory cosmeticServiceCategory1 = new CosmeticServiceCategory(1L, "AA", cosmeticServices1);
-        CosmeticServiceCategory cosmeticServiceCategory2 = new CosmeticServiceCategory(4L, "BB", cosmeticServices2);
-
-        List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
-        cosmeticServiceCategories.add(cosmeticServiceCategory1);
-        cosmeticServiceCategories.add(cosmeticServiceCategory2);
 
         when(cosmeticServiceCategoryService.categoryWithTheLeastNumberOfServices()).thenReturn(cosmeticServiceCategory1);
 

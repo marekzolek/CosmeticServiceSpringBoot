@@ -8,7 +8,6 @@ import com.marekzolek.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,17 +22,17 @@ public class CosmeticServiceCategoryServiceImpl implements CosmeticServiceCatego
     private CustomerRepository customerRepository;
 
     @Override
-    public CosmeticServiceCategory add(CosmeticServiceCategory cosmeticServiceCategory) {
+    public CosmeticServiceCategory add(final CosmeticServiceCategory cosmeticServiceCategory) {
         return cosmeticServiceCategoryRepository.save(cosmeticServiceCategory);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(final Long id) {
         cosmeticServiceCategoryRepository.deleteById(id);
     }
 
     @Override
-    public CosmeticServiceCategory findOne(Long id) throws CategoryNotFoundException {
+    public CosmeticServiceCategory findOne(final Long id) throws CategoryNotFoundException {
 
         CosmeticServiceCategory cosmeticServiceCategory;
 
@@ -53,7 +52,7 @@ public class CosmeticServiceCategoryServiceImpl implements CosmeticServiceCatego
     }
 
     @Override
-    public List<CosmeticServiceCategory> namesOfCategoryServiceOfGivenCustomer(Long customerId) throws CustomerNotFoundException {
+    public List<CosmeticServiceCategory> namesOfCategoryServiceOfGivenCustomer(final Long customerId) throws CustomerNotFoundException {
 
         List<CosmeticServiceCategory> cosmeticServiceCategories;
 
@@ -66,7 +65,7 @@ public class CosmeticServiceCategoryServiceImpl implements CosmeticServiceCatego
     }
 
     @Override
-    public List<CosmeticServiceCategory> findAllByServiceType(String type) {
+    public List<CosmeticServiceCategory> findAllByServiceType(final String type) {
 
         return cosmeticServiceCategoryRepository.findAll().stream()
                 .filter(cosmeticServiceCategory -> cosmeticServiceCategory.getCosmeticServices().stream()
@@ -104,5 +103,11 @@ public class CosmeticServiceCategoryServiceImpl implements CosmeticServiceCatego
         }
         return cosmeticServiceCategory;
     }
+
+    @Override
+    public Integer countNumberOfCosmeticServicesCostGivenPrice(final Integer price) {
+        return cosmeticServiceCategoryRepository.countNumberOfCosmeticServicesCostGivenPrice(price);
+    }
+
 
 }

@@ -18,17 +18,17 @@ public class CosmeticServiceController {
     private CosmeticServiceService cosmeticServiceService;
 
     @PostMapping("/add")
-    public CosmeticService add(@RequestBody CosmeticService cosmeticService) {
+    public CosmeticService add(@RequestBody final CosmeticService cosmeticService) {
         return cosmeticServiceService.add(cosmeticService);
     }
 
     @DeleteMapping("/delete")
-    public void delete(@RequestParam Long id) {
+    public void delete(@RequestParam final Long id) {
         cosmeticServiceService.delete(id);
     }
 
     @GetMapping("/{id}")
-    public CosmeticService findOne(@PathVariable Long id) throws CosmeticServiceNotFoundException {
+    public CosmeticService findOne(@PathVariable final Long id) throws CosmeticServiceNotFoundException {
         return cosmeticServiceService.findOne(id);
     }
 
@@ -38,12 +38,12 @@ public class CosmeticServiceController {
     }
 
     @GetMapping("/withCategoryId/{categoryId}")
-    public List<CosmeticService> findCosmeticServicesWithCategoryId(@PathVariable Long categoryId) throws CategoryNotFoundException {
+    public List<CosmeticService> findCosmeticServicesWithCategoryId(@PathVariable final Long categoryId) throws CategoryNotFoundException {
         return cosmeticServiceService.findCosmeticServicesWithCategoryId(categoryId);
     }
 
     @GetMapping("/type")
-    public List<CosmeticService> findAllByType(@RequestParam String type) {
+    public List<CosmeticService> findAllByType(@RequestParam final String type) {
         return cosmeticServiceService.findAllByType(type);
     }
 
@@ -58,7 +58,17 @@ public class CosmeticServiceController {
     }
 
     @GetMapping("/numberOfServicesByType")
-    public Integer countServicesByType(@RequestParam String type) {
+    public Integer countServicesByType(@RequestParam final String type) {
         return cosmeticServiceService.countServicesByType(type);
+    }
+
+    @GetMapping("/cosmeticServiceStartWithLetter/{letter}")
+    public List<CosmeticService> findByNameWhereNameStartWithLetter(@PathVariable final String letter) {
+        return cosmeticServiceService.findByNameWhereNameStartWithLetter(letter);
+    }
+
+    @GetMapping("/findAllByPriceGraterThenGivenPrice/{price}")
+    public List<CosmeticService> findAllByPriceGraterThenGivenPrice(@PathVariable final Integer price) {
+        return cosmeticServiceService.findAllByPriceGraterThenGivenPrice(price);
     }
 }

@@ -9,5 +9,7 @@ import java.util.List;
 public interface CosmeticServiceCategoryRepository extends JpaRepository<CosmeticServiceCategory, Long> {
 
     @Query(value = "SELECT s.category from CosmeticServicesHistory h join h.cosmeticService s where h.customer.id=?1")
-    List<CosmeticServiceCategory> namesOfCategoryServiceOfGivenCustomer(Long customerId);
+    List<CosmeticServiceCategory> namesOfCategoryServiceOfGivenCustomer(final Long customerId);
+
+    Integer countNumberOfCosmeticServicesCostGivenPrice(final Integer price);
 }

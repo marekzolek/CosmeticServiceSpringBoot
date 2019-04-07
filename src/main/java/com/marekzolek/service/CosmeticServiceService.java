@@ -8,21 +8,25 @@ import java.util.List;
 
 public interface CosmeticServiceService {
 
-    CosmeticService add(CosmeticService cosmeticService);
+    CosmeticService add(final CosmeticService cosmeticService);
 
-    void delete(Long id);
+    void delete(final Long id);
 
-    CosmeticService findOne(Long id) throws CosmeticServiceNotFoundException;
+    CosmeticService findOne(final Long id) throws CosmeticServiceNotFoundException;
 
     List<CosmeticService> findAll();
 
-    List<CosmeticService> findCosmeticServicesWithCategoryId(Long id) throws CategoryNotFoundException;
+    List<CosmeticService> findCosmeticServicesWithCategoryId(final Long id) throws CategoryNotFoundException;
 
-    List<CosmeticService> findAllByType(String type);
+    List<CosmeticService> findAllByType(final String type);
 
     CosmeticService findTheMostExpensiveService();
 
     CosmeticService findCheapestService();
 
-    Integer countServicesByType(String type);
+    Integer countServicesByType(final String type);
+
+    List<CosmeticService> findByNameWhereNameStartWithLetter(final String letter);
+
+    List<CosmeticService> findAllByPriceGraterThenGivenPrice(final Integer price);
 }

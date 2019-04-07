@@ -28,17 +28,17 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerDtoMapper customerDtoMapper;
 
     @Override
-    public Customer add(Customer customer) {
+    public Customer add(final Customer customer) {
         return customerRepository.save(customer);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(final Long id) {
         customerRepository.deleteById(id);
     }
 
     @Override
-    public Customer findOne(Long id) throws CustomerNotFoundException {
+    public Customer findOne(final Long id) throws CustomerNotFoundException {
 
         Customer customer;
 
@@ -59,7 +59,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> customersBornBeforeYear(Integer year) {
+    public List<Customer> customersBornBeforeYear(final Integer year) {
 
         List<Customer> customers = new ArrayList<>();
         int givenYear = Integer.parseInt(year.toString().substring(0, 2));
@@ -75,7 +75,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> customersWhichHadServicesInYear(Integer year) throws ParseException {
+    public List<Customer> customersWhichHadServicesInYear(final Integer year) throws ParseException {
 
         List<Customer> customers = new ArrayList<>();
 
@@ -95,7 +95,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> womanBornBeforeYear(Integer year) {
+    public List<Customer> womanBornBeforeYear(final Integer year) {
 
         List<Customer> customers = new ArrayList<>();
         int customerYearOfBirth;
@@ -111,7 +111,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> mansBornBeforeYear(Integer year) {
+    public List<Customer> mansBornBeforeYear(final Integer year) {
 
         List<Customer> customers = new ArrayList<>();
         int customerYearOfBirth;
@@ -127,7 +127,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerDto> customersWithSumOfServicesInGivenYear(Integer year) throws ParseException {
+    public List<CustomerDto> customersWithSumOfServicesInGivenYear(final Integer year) throws ParseException {
 
         List<CustomerDto> dtoCustomers = new ArrayList<>();
         Map<Customer, Integer> customerMap = new HashMap<>();
@@ -141,8 +141,8 @@ public class CustomerServiceImpl implements CustomerService {
             calendar.setTime(sdf.parse(cosmeticServicesHistory.getDate()));
             if (calendar.get(Calendar.YEAR) == year) {
                 if (customerMap.containsKey(cosmeticServicesHistory.getCustomer())) {
-                    customerMap.put(cosmeticServicesHistory.getCustomer(), customerMap.get(cosmeticServicesHistory.getCustomer()) +
-                            cosmeticServicesHistory.getCosmeticService().getPrice());
+                    customerMap.put(cosmeticServicesHistory.getCustomer(), customerMap.get(cosmeticServicesHistory.getCustomer())
+                            + cosmeticServicesHistory.getCosmeticService().getPrice());
                 } else {
                     customerMap.put(cosmeticServicesHistory.getCustomer(), cosmeticServicesHistory.getCosmeticService().getPrice());
                 }
@@ -158,12 +158,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> customersWhichHadGivenService(Long serviceId) {
+    public List<Customer> customersWhichHadGivenService(final Long serviceId) {
         return customerRepository.customersWhichHadGivenService(serviceId);
     }
 
     @Override
-    public List<Customer> customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear(Integer yearOfBirth, Long categoryId, Integer yearOfService) throws ParseException {
+    public List<Customer> customersBornInGivenYearAndWhichHadServiceFromGivenCategoryInGivenYear(final Integer yearOfBirth, final Long categoryId, final Integer yearOfService) throws ParseException {
 
         List<Customer> customers = new ArrayList<>();
 
@@ -182,5 +182,6 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return customers;
     }
+
 
 }

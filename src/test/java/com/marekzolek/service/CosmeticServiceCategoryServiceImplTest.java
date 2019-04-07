@@ -7,6 +7,7 @@ import com.marekzolek.model.CosmeticServiceCategory;
 import com.marekzolek.model.Customer;
 import com.marekzolek.repository.CosmeticServiceCategoryRepository;
 import com.marekzolek.repository.CustomerRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -24,6 +25,18 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CosmeticServiceCategoryServiceImplTest {
 
+    CosmeticService cosmeticService1;
+    CosmeticService cosmeticService2;
+    CosmeticServiceCategory cosmeticServiceCategory1;
+    CosmeticServiceCategory cosmeticServiceCategory2;
+
+
+    List<CosmeticService> cosmeticServices1 = new ArrayList<>();
+
+    List<CosmeticService> cosmeticServices2 = new ArrayList<>();
+
+    List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
+
     @InjectMocks
     private CosmeticServiceCategoryServiceImpl cosmeticServiceCategoryService;
 
@@ -33,14 +46,47 @@ public class CosmeticServiceCategoryServiceImplTest {
     @Mock
     private CustomerRepository customerRepository;
 
+    @Before
+    public void init(){
+        cosmeticService1 = new CosmeticService.CosmeticServiceBuilder()
+                .name("AA")
+                .price(250)
+                .type("M")
+                .category(null)
+                .build();
+        cosmeticService2 = new CosmeticService.CosmeticServiceBuilder()
+                .name("BB")
+                .price(200)
+                .type("F")
+                .category(null)
+                .build();
+
+        cosmeticServices1.add(cosmeticService1);
+
+        cosmeticServices2.add(cosmeticService1);
+        cosmeticServices2.add(cosmeticService2);
+
+        cosmeticServiceCategory1 = new CosmeticServiceCategory.CosmeticServiceCategoryBuilder()
+                .id(1L)
+                .name("AA")
+                .cosmeticServices(cosmeticServices1)
+                .build();
+        cosmeticServiceCategory2 = new CosmeticServiceCategory.CosmeticServiceCategoryBuilder()
+                .id(2L)
+                .name("BB")
+                .cosmeticServices(cosmeticServices2)
+                .build();
+
+        cosmeticServiceCategories.add(cosmeticServiceCategory1);
+        cosmeticServiceCategories.add(cosmeticServiceCategory2);
+    }
+
     @Test
     public void add() {
 
-        CosmeticServiceCategory cosmeticServiceCategory = new CosmeticServiceCategory();
+        when(cosmeticServiceCategoryRepository.save(cosmeticServiceCategory1)).thenReturn(cosmeticServiceCategory1);
 
-        when(cosmeticServiceCategoryRepository.save(cosmeticServiceCategory)).thenReturn(cosmeticServiceCategory);
-
-        assertEquals(cosmeticServiceCategory, cosmeticServiceCategoryService.add(cosmeticServiceCategory));
+        assertEquals(cosmeticServiceCategory1, cosmeticServiceCategoryService.add(cosmeticServiceCategory1));
     }
 
     @Test
@@ -53,22 +99,13 @@ public class CosmeticServiceCategoryServiceImplTest {
     @Test
     public void findOne() throws CategoryNotFoundException {
 
-        CosmeticServiceCategory cosmeticServiceCategory = new CosmeticServiceCategory();
+        when(cosmeticServiceCategoryRepository.findById(1L)).thenReturn(Optional.of(cosmeticServiceCategory1));
 
-        when(cosmeticServiceCategoryRepository.findById(1L)).thenReturn(Optional.of(cosmeticServiceCategory));
-
-        assertEquals(cosmeticServiceCategory, cosmeticServiceCategoryService.findOne(1L));
+        assertEquals(cosmeticServiceCategory1, cosmeticServiceCategoryService.findOne(1L));
     }
 
     @Test
     public void findAll() {
-
-        CosmeticServiceCategory cosmeticServiceCategory1 = new CosmeticServiceCategory();
-        CosmeticServiceCategory cosmeticServiceCategory2 = new CosmeticServiceCategory();
-
-        List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
-        cosmeticServiceCategories.add(cosmeticServiceCategory1);
-        cosmeticServiceCategories.add(cosmeticServiceCategory2);
 
         when(cosmeticServiceCategoryRepository.findAll()).thenReturn(cosmeticServiceCategories);
 
@@ -80,13 +117,6 @@ public class CosmeticServiceCategoryServiceImplTest {
 
         Customer customer = new Customer();
 
-        CosmeticServiceCategory cosmeticServiceCategory1 = new CosmeticServiceCategory();
-        CosmeticServiceCategory cosmeticServiceCategory2 = new CosmeticServiceCategory();
-
-        List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
-        cosmeticServiceCategories.add(cosmeticServiceCategory1);
-        cosmeticServiceCategories.add(cosmeticServiceCategory2);
-
         when(customerRepository.findById(1L)).thenReturn(Optional.of(customer));
         when(cosmeticServiceCategoryRepository.namesOfCategoryServiceOfGivenCustomer(1L)).thenReturn(cosmeticServiceCategories);
 
@@ -96,43 +126,16 @@ public class CosmeticServiceCategoryServiceImplTest {
     @Test
     public void findAllByServiceType() {
 
-        CosmeticService cosmeticService1 = new CosmeticService(null, null, "M", null);
-        CosmeticService cosmeticService2 = new CosmeticService(null, null, "F", null);
-
-        List<CosmeticService> cosmeticServices1 = new ArrayList<>();
-        cosmeticServices1.add(cosmeticService1);
-        List<CosmeticService> cosmeticServices2 = new ArrayList<>();
-        cosmeticServices2.add(cosmeticService2);
-
-        CosmeticServiceCategory cosmeticServiceCategory1 = new CosmeticServiceCategory(1L, null, cosmeticServices1);
-        CosmeticServiceCategory cosmeticServiceCategory2 = new CosmeticServiceCategory(2L, null, cosmeticServices2);
-
-        List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
+        cosmeticServiceCategories.clear();
         cosmeticServiceCategories.add(cosmeticServiceCategory1);
+
         when(cosmeticServiceCategoryRepository.findAll()).thenReturn(cosmeticServiceCategories);
 
-        assertEquals(cosmeticServiceCategories, cosmeticServiceCategoryService.findAllByServiceType("M"));
+        assertEquals(1, cosmeticServiceCategoryService.findAllByServiceType("M").size());
     }
 
     @Test
     public void categoryWithTheLargestNumberOfServices() throws CategoryNotFoundException {
-
-        CosmeticService cosmeticService1 = new CosmeticService();
-        CosmeticService cosmeticService2 = new CosmeticService();
-
-        List<CosmeticService> cosmeticServices1 = new ArrayList<>();
-        cosmeticServices1.add(cosmeticService1);
-
-        List<CosmeticService> cosmeticServices2 = new ArrayList<>();
-        cosmeticServices2.add(cosmeticService1);
-        cosmeticServices2.add(cosmeticService2);
-
-        CosmeticServiceCategory cosmeticServiceCategory1 = new CosmeticServiceCategory(1L, null, cosmeticServices1);
-        CosmeticServiceCategory cosmeticServiceCategory2 = new CosmeticServiceCategory(2L, null, cosmeticServices2);
-
-        List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
-        cosmeticServiceCategories.add(cosmeticServiceCategory1);
-        cosmeticServiceCategories.add(cosmeticServiceCategory2);
 
         when(cosmeticServiceCategoryRepository.findAll()).thenReturn(cosmeticServiceCategories);
 
@@ -141,23 +144,6 @@ public class CosmeticServiceCategoryServiceImplTest {
 
     @Test
     public void categoryWithTheLeastNumberOfServices() throws CategoryNotFoundException {
-
-        CosmeticService cosmeticService1 = new CosmeticService();
-        CosmeticService cosmeticService2 = new CosmeticService();
-
-        List<CosmeticService> cosmeticServices1 = new ArrayList<>();
-        cosmeticServices1.add(cosmeticService1);
-
-        List<CosmeticService> cosmeticServices2 = new ArrayList<>();
-        cosmeticServices2.add(cosmeticService1);
-        cosmeticServices2.add(cosmeticService2);
-
-        CosmeticServiceCategory cosmeticServiceCategory1 = new CosmeticServiceCategory(1L, null, cosmeticServices1);
-        CosmeticServiceCategory cosmeticServiceCategory2 = new CosmeticServiceCategory(2L, null, cosmeticServices2);
-
-        List<CosmeticServiceCategory> cosmeticServiceCategories = new ArrayList<>();
-        cosmeticServiceCategories.add(cosmeticServiceCategory1);
-        cosmeticServiceCategories.add(cosmeticServiceCategory2);
 
         when(cosmeticServiceCategoryRepository.findAll()).thenReturn(cosmeticServiceCategories);
 
