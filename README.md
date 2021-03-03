@@ -1,7 +1,7 @@
 # CosmeticServiceSpringBoot
 > Aplikacja utworzona podczas odbywania szkolenia wewnętrznego w pewnej firmie 
 
-## Table of contents
+## Spis treści
 * [Informacje](#general-info)
 * [Technologie](#technologies)
 * [Status](#status)
